@@ -19,5 +19,8 @@ app.config(function($routeProvider) {
   }).when('/permissions', {
     templateUrl: 'views/permissions.html',
     controller: 'PermissionsController'
+  }).when('/senders', {
+    templateUrl: 'views/senders.html',
+    controller: 'SendfundsController'
   }).otherwise({redirectTo: '/'});
 });
