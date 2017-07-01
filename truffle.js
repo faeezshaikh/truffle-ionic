@@ -14,12 +14,17 @@ module.exports = {
       "javascript/controllers/permissions.js"
     ],
     "app.css": [
+      "vendor/ionic/css/ionic.min.css",
       "stylesheets/app.css"
+    
     ],
     "images/": "images/",
     "views/": "views/",
-    // "lib/":"lib/",
-    // "fonts/":"fonts"
+    "lib/":"lib/",
+    "fonts/":[
+      "vendor/ionic/fonts/ionicons.ttf",
+      "vendor/ionic/fonts/ionicons.woff"
+    ]
     
   }),
 

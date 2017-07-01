@@ -117,3 +117,14 @@ Any Solidity Program can be "forced" to use another compiler version (older one)
 
 The code here is updated to work with solidity 0.4.8.
 
+
+
+
+===
+
+
+bower install --save driftyco/ionic-bower#v1.1.1 --allow-root
+
+sudo bower install --save fontawesome --allow-root
+
+For Font-awesome, include the fa.js script. Thats it.. No need for .css or .wof or any of font files
