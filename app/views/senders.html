@@ -1,4 +1,22 @@
 
+
+
+<ion-view view-title="BxChange Escrow Account">
+
+  <ion-content delegate-handle="">
+
+<div class="list">
+
+    <a class="item item-thumbnail-left" ng-repeat="sender in friends | filter:searchText" href="/#!/senders/{{sender.id}}">
+      <img src="https://avatars2.githubusercontent.com/u/3466845?v=3&s=460">
+      <h2>{{sender.name}}</h2>
+      <p>{{sender.phone}}</p>
+    </a>
+</div>
+  </ion-content>
+</ion-view>
+<!--
+
 <label>Search: <input ng-model="searchText"></label>
 <div class="list-group">
   <a ng-repeat="friend in friends | filter:searchText" href="/#!/senders/{{friend.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
@@ -15,7 +33,6 @@
 
 
 
-<!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -32,4 +49,4 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
