@@ -19,3 +19,7 @@
     background-color: #ff6600;
     color: #fff;
 }
+
+.button.button-positive.activated {
+    background-color: #660099;
+}
