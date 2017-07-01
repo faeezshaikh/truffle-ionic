@@ -4,8 +4,8 @@ module.exports = {
   build: new DefaultBuilder({
     "index.html": "index.html",
     "app.js": [
-      "vendor/angular/angular.js",
-      "vendor/angular-route/angular-route.js",
+      // "vendor/angular/angular.js",
+      // "vendor/angular-route/angular-route.js",
       "javascript/app.js",
       "javascript/controllers/main.js",
       "javascript/controllers/sendfunds.js",

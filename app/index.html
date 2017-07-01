@@ -14,14 +14,20 @@
 
   <link rel="stylesheet" href="./lib/bootstrap-slider.min.css">
   <script src="./lib/bootstrap-slider.min.js"></script>      
+
+   <link href="http://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+
+
   <script src="./app.js"></script>
 </head>
-<body>
+<body ng-controller="MainController">
   
+<ion-nav-view></ion-nav-view>
 
+<!--
   <nav class="navbar navbar-default">
   <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -32,7 +38,6 @@
       <a class="navbar-brand" href="/">SimpleWallet</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a ng-href="/#!/events">Events</a></li>
@@ -47,8 +52,8 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
 
 
@@ -59,7 +64,7 @@
       <div ng-view></div>
     </div>
   </div>
-</div>
+</div>-->
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
