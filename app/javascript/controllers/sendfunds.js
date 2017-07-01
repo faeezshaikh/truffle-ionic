@@ -39,12 +39,12 @@ app.controller('SendfundsController', function($scope){
 
 
 
-    $scope.friends = [          {id:1, name:'John', phone:'555-1276'},
-                         {id:2, name:'Mary', phone:'800-BIG-MARY'},
-                         {id:3, name:'Mike', phone:'555-4321'},
-                         {id:4, name:'Adam', phone:'555-5678'},
-                         {id:5, name:'Julie', phone:'555-8765'},
-                         {id:6, name:'Juliette', phone:'555-5678'}];
+    $scope.friends = [          {id:1, name:'John', phone:'555-1276',img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5duF2C4wJfJfEoCTbe23miXSwN7De5wHwY5PtGs3KoP_aASn4Gg'},
+                         {id:2, name:'Mary', phone:'800-BIG-MARY',img:'http://www.saga.co.uk/contentlibrary/saga/publishing/verticals/money/spending/consumer-rights/parcel-scam-shutterstock-291281267.jpg'},
+                         {id:3, name:'Mike', phone:'555-4321',img:'http://www.shipping-usa.co.uk/images/send-parcel-to-usa.png'},
+                         {id:4, name:'Adam', phone:'555-5678',img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8JtPHRxj4dx5VjPEDxq3nIeJUjwCiiusazV9_ImTVXZNpOGz4tg'},
+                         {id:5, name:'Julie', phone:'555-8765',img:'https://www.directcouriersolutions.com/wp-content/uploads/2015/02/parcel-500-660-500x600.jpg'},
+                         {id:6, name:'Juliette', phone:'555-5678',img:'http://www.book-cycle.org/wp-content/uploads/2015/08/parcel.png'}];
 
 
 });

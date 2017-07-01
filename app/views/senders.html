@@ -23,7 +23,7 @@
 <div class="list">
 
     <a class="item item-thumbnail-left" ng-repeat="sender in filtered = (friends | filter:searchText)" href="/#!/senders/{{sender.id}}">
-      <img src="https://avatars2.githubusercontent.com/u/3466845?v=3&s=460">
+      <img src="{{sender.img}}">
       <h2>{{sender.name}}</h2>
       <p>{{sender.phone}}</p>
     </a>
