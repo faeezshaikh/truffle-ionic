@@ -6,6 +6,7 @@ module.exports = {
     "app.js": [
       // "vendor/angular/angular.js",
       // "vendor/angular-route/angular-route.js",
+      "vendor/ionic/js/ionic.bundle.js",
       "javascript/app.js",
       "javascript/controllers/main.js",
       "javascript/controllers/sendfunds.js",

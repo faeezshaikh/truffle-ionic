@@ -29,7 +29,7 @@ web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
 // });
 
 
- var app = angular.module('mySimpleWalletDapp', ['ionic']);
+ var app = angular.module("mySimpleWalletDapp", ['ionic']);
 
 
 app.config(function($stateProvider, $urlRouterProvider) {
