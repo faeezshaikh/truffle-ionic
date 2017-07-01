@@ -1,7 +1,7 @@
 
 <label>Search: <input ng-model="searchText"></label>
 <div class="list-group">
-  <a ng-repeat="friend in friends | filter:searchText" ref="#" class="list-group-item list-group-item-action flex-column align-items-start " data-toggle="modal" data-target="#myModal">
+  <a ng-repeat="friend in friends | filter:searchText" href="/#!/senders/{{friend.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{friend.name}}</h5>
       <small>{{friend.phone}}</small>

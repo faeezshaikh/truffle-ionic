@@ -22,5 +22,8 @@ app.config(function($routeProvider) {
   }).when('/senders', {
     templateUrl: 'views/senders.html',
     controller: 'SendfundsController'
+  }).when('/senders/:senderId', {
+    templateUrl: 'views/sender.html',
+    controller: 'SendfundsController'
   }).otherwise({redirectTo: '/'});
 });
