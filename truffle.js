@@ -16,8 +16,9 @@ module.exports = {
       "stylesheets/app.css"
     ],
     "images/": "images/",
-    "views/": "views/"
-    //"lib/":"lib/"
+    "views/": "views/",
+    // "lib/":"lib/",
+    // "fonts/":"fonts"
     
   }),
 
