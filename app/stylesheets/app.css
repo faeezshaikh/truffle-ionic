@@ -1,48 +1,21 @@
-body {
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 10%;
-  font-family: "Open Sans", sans-serif;
+
+.fedex-purple {
+  color: #660099;
 }
 
-label {
-  display: inline-block;
-  width: 100px;
+.fedex-orange {
+  color: #ff6600;
 }
 
-input {
-  width: 500px;
-  padding: 5px;
-  font-size: 16px;
-}
+ .bar.bar-positive {
+    border-color: #0c60ee;
+    background-color: #660099;
+    background-image: linear-gradient(0deg, #0c60ee, #0c60ee 50%, transparent 50%);
+    color: #fff; 
+    }
 
-button {
-  font-size: 16px;
-  padding: 5px;
-}
-
-h1, h2 {
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: 0px;
-  margin-bottom: 10px;
-}
-
-h2 {
-  color: #AAA;
-  font-size: 32px;
-}
-
-h3 {
-  font-weight: normal;
-  color: #AAA;
-  font-size: 24px;
-}
-
-.black {
-  color: black;
-}
-
-#balance {
-  color: black;
+.button.button-positive {
+    border-color: transparent;
+    background-color: #ff6600;
+    color: #fff;
 }
