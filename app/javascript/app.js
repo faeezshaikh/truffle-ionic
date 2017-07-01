@@ -51,6 +51,33 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+ .state('app.events', {
+      url: '/events',
+      views: {
+        'menuContent': {
+          templateUrl: 'views/events.html',
+          controller: 'ShoweventsController'
+        }
+      }
+    })
+ .state('app.sendfunds', {
+      url: '/sendfunds',
+      views: {
+        'menuContent': {
+          templateUrl: 'views/sendfunds.html',
+          controller: 'SendfundsController'
+        }
+      }
+    })
+ .state('app.permissions', {
+      url: '/permissions',
+      views: {
+        'menuContent': {
+          templateUrl: 'views/permissions.html',
+          controller: 'PermissionsController'
+        }
+      }
+    })
 
     .state('app.senders', {
       url: '/senders',
