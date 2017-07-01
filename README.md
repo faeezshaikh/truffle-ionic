@@ -10,12 +10,18 @@ npm install -g truffle
 
 and then **clone this repository**
 ```
-git clone https://github.com/tomw1808/truffle_eth_class1.git
+git clone https://github.com/faeezshaikh/truffle-angular-dapp.git
 ```
 and run
 
 ```
 bower install
+```
+
+or
+
+```
+sudo bower install --allow-root
 ```
 
 which installs the angular components.
@@ -48,49 +54,6 @@ truffle serve
 
 which opens an HTTP Server on http://localhost:8080
 
-## Known Issues
-
-### Error when running truffle test/migrate
-
-If something like this pops up:
-```
-dependency_path = source.resolve_dependency_path(import_path, dependency_path);
-```
-
-or
-
-```
-/usr/lib/node_modules/truffle/node_modules/truffle-compile/profiler.js:120
-        if (ancestors.length > 0) {
-                     ^
-
-TypeError: Cannot read property 'length' of undefined
-    at walk_from (/usr/lib/node_modules/truffle/node_modules/truffle-compile/profiler.js:120:22)
-
-```
-
-then try to install truffle 3.1.9:
-
-```
-npm install -g truffle@3.1.9
-```
-
-### Error when installing truffle
-
-Something like
-
- `... receive errors including "MSBUILD : error MSB3428: Could not load the Visual C++ component "VCBuild.exe".`
-
-or
-
-`... node_modules\truffle\node_modules\sha3\build\sha3.vcxproj(20,3): error MSB4019: The imported project "C:\Microsoft.Cpp.Default.props" was not found. Confirm that the path in the <Import> declaration is correct, and that the file exists on disk.".  `
-
-When you have installed Visual Studio, make sure you have opened a c++ project once.
-
-Then try `npm config set msvs_version 2015 --global` and in addition you can try to install the ms-build tools:
-```
-npm install --global --production windows-build-tools
-```
 
 ### Geth Attach
 
@@ -122,9 +85,12 @@ The code here is updated to work with solidity 0.4.8.
 
 ===
 
-
+```
 bower install --save driftyco/ionic-bower#v1.1.1 --allow-root
+```
 
+```
 sudo bower install --save fontawesome --allow-root
+```
 
 For Font-awesome, include the fa.js script. Thats it.. No need for .css or .wof or any of font files
