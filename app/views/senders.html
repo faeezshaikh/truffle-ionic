@@ -22,10 +22,13 @@
 
 <div class="list">
 
-    <a class="item item-thumbnail-left" ng-repeat="sender in filtered = (friends | filter:searchText)" href="/#!/senders/{{sender.id}}">
+    <a class="item item-thumbnail-left item-icon-right" ng-repeat="sender in filtered = (friends | filter:searchText)" href="/#!/senders/{{sender.id}}">
       <img src="{{sender.img}}">
       <h2>{{sender.name}}</h2>
       <p>{{sender.phone}}</p>
+      <p><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{sender.gems}}</p>
+      <p><i class="ion-ios-navigate"></i>&nbsp;{{sender.miles}} miles away</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
     </a>
 </div>
   </ion-content>
