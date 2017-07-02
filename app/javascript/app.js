@@ -88,6 +88,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+     .state('app.contract', {
+      url: '/contract',
+      views: {
+        'menuContent': {
+          templateUrl: 'views/contract.html',
+          controller: 'SmartContractController'
+        }
+      }
+    })
   ;
   $urlRouterProvider.otherwise('/app/main');
 })

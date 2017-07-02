@@ -73,3 +73,11 @@ app.controller('SendfundsController', function($scope,$ionicModal,$ionicScrollDe
 
     };
 });
+
+
+/// TODO: Externalize file
+
+app.controller('SmartContractController', function($scope,$ionicModal,$ionicScrollDelegate){ 
+
+    $scope.contractBalance = 100;
+});
