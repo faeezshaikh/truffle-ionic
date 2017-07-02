@@ -30,21 +30,18 @@
 
 
           <div class="item item-divider">
-            Personal Bio
+            Sender Info
           </div>
            <label class="item item-input item-stacked-label">
-              <span class="input-label">Name*&nbsp;<small ng-show="" style="font-size:50%">Some validation</small></span>
+              <span class="input-label">Address*&nbsp;<small ng-show="" style="font-size:50%">Some validation</small></span>
               <input ng-model="newPerson.name" type="text" placeholder="Full Name">
             </label>
 
-
+<!--
             <label class="item item-input item-stacked-label">
                     <span class="input-label">DOB*&nbsp;</span>
-                          <!-- <input ng-model="newPerson.age" type="number" min="1" max="99" placeholder="Age"> -->
                           <input type="date" placeholder="MM/DD/YYYY" ng-model="newPerson.dob">
-            </label>
-
-
+            </label>-->
 
              <label class="item item-input item-stacked-label">
               <span class="input-label">Phone&nbsp;<small  style="font-size:50%">Min 10 chars</small></span>
@@ -63,13 +60,38 @@
             <input type="range" name="volume" min="0" max="100" ng-model="RV">
           <i class="icon ion-ios-sunny"></i>
       </div>
+
+
+  <div class="item item-divider">
+            Receiver Info
+          </div>
+           <label class="item item-input item-stacked-label">
+              <span class="input-label">Address*&nbsp;<small ng-show="" style="font-size:50%">Some validation</small></span>
+              <input ng-model="newPerson.name" type="text" placeholder="Full Name">
+            </label>
+
+             <label class="item item-input item-stacked-label">
+              <span class="input-label">Phone&nbsp;<small  style="font-size:50%">Min 10 chars</small></span>
+              <input ng-model="newPerson.phone" type="text" placeholder="(314)-234-9876" maxlength="12"></textarea>
+            </label>
+
+
+             <label class="item item-input item-stacked-label">
+              <span class="input-label">Email&nbsp;</span>
+              <input ng-model="newPerson.email" type="email" placeholder="someone@gmail.com"></textarea>
+            </label>
+
+
+     
+
+
           <div class="item item-divider">
-            Address
+            Instructions
           </div>
             <label class="item item-input item-stacked-label">
                   <div class="row">
                       <div class="col col-50">
-                        <span class="input-label">Use current location</span>
+                        <span class="input-label">Signed Delivery Required?</span>
                         <p></p>
                         <small  style="font-size:50%">Turn off to enter Address</small>
                       </div>
@@ -93,7 +115,7 @@
               <textarea ng-model="newPerson.address" type="text" placeholder="Last known Address" rows="5" cols="50"></textarea>
             </label>
 
-            <ion-checkbox ng-model="newPerson.willingToWork">Is Willing to Work?</ion-checkbox>
+            <ion-checkbox class="checkbox-royal" ng-model="newPerson.willingToWork">Fragile?</ion-checkbox>
 
             <label class="item item-input item-stacked-label" ng-show="newPerson.willingToWork">
               <span class="input-label">Skills*&nbsp;<small style="font-size:50%">Separate skills by comma</small></span>
