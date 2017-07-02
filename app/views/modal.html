@@ -1,12 +1,115 @@
-  <ion-modal-view >
-        <ion-header-bar class="bar-positive">
-        <h1 class="title">My Modal title</h1>
-        </ion-header-bar>
-        <ion-content>
-        Hello!
-          <p class="center">
+<ion-modal-view>
+  <ion-header-bar class="bar-positive">
+    <h1 class="title">My Modal title</h1>
+  </ion-header-bar>
 
-                        <button class="button button-block button-positive" ng-click="closeModal()" >Close</button>
-                    </p>
-        </ion-content>
-  </ion-modal-view>
+
+  <ion-content class="padding">
+    <div class="list">
+
+
+
+      <!--Image Starts -->
+      <div class="text-center" ng-hide="imageData" ng-click="autoFill()">
+        <img class="full-image" ng-src="https://dbiers.me/wp-content/uploads/2012/08/package-21.png" style="width:50%;height:50%">
+      </div>
+
+      <div class="text-center" ng-show="imageData" ng-click="autoFill()">
+        <div class="picture">
+          <img ng-src="data:image/jpeg;base64,{{imageData}}" alt="">
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="button button-positive" ng-click="addPicture(true)"><i class="icon ion-ios-cloud-upload">&nbsp;</i>Upload</button>
+        <button class="button button-positive" ng-click="addPicture(false)"><i class="icon ion-camera">&nbsp;</i>Take Picture</button>
+        <button class="button button-assertive" ng-click="removePicture()" ng-show="imageData"><i class="icon ion-trash-a">&nbsp;</i>Remove Picture</button>
+      </div>
+      <!--Image Ends-->
+
+      <p></p>
+
+
+          <div class="item item-divider">
+            Personal Bio
+          </div>
+           <label class="item item-input item-stacked-label">
+              <span class="input-label">Name*&nbsp;<small ng-show="" style="font-size:50%">Some validation</small></span>
+              <input ng-model="newPerson.name" type="text" placeholder="Full Name">
+            </label>
+
+
+            <label class="item item-input item-stacked-label">
+                    <span class="input-label">DOB*&nbsp;</span>
+                          <!-- <input ng-model="newPerson.age" type="number" min="1" max="99" placeholder="Age"> -->
+                          <input type="date" placeholder="MM/DD/YYYY" ng-model="newPerson.dob">
+            </label>
+
+
+
+             <label class="item item-input item-stacked-label">
+              <span class="input-label">Phone&nbsp;<small  style="font-size:50%">Min 10 chars</small></span>
+              <input ng-model="newPerson.phone" type="text" placeholder="(314)-234-9876" maxlength="12"></textarea>
+            </label>
+
+
+             <label class="item item-input item-stacked-label">
+              <span class="input-label">Email&nbsp;</span>
+              <input ng-model="newPerson.email" type="email" placeholder="someone@gmail.com"></textarea>
+            </label>
+
+
+      <div class="item range range-balanced range-background-dark">
+          <i class="icon ion-ios-sunny-outline"></i>
+            <input type="range" name="volume" min="0" max="100" ng-model="RV">
+          <i class="icon ion-ios-sunny"></i>
+      </div>
+          <div class="item item-divider">
+            Address
+          </div>
+            <label class="item item-input item-stacked-label">
+                  <div class="row">
+                      <div class="col col-50">
+                        <span class="input-label">Use current location</span>
+                        <p></p>
+                        <small  style="font-size:50%">Turn off to enter Address</small>
+                      </div>
+                      <div class="col col-50">
+                        <label class="toggle pull-right">
+                          <input type="checkbox" ng-model="newPerson.useLocation">
+                          <div class="track">
+                            <div class="handle"></div>
+                          </div>
+                        </label>
+                        <!--<ion-toggle ng-model="newPerson.useLocation" >Airplane Mode</ion-toggle>-->
+                      </div>
+                  </div>
+            </label>
+
+
+
+
+            <label class="item item-input item-stacked-label" ng-hide="newPerson.useLocation">
+              <span class="input-label">Address*&nbsp;<small style="font-size:50%">Min 100 chars</small></span>
+              <textarea ng-model="newPerson.address" type="text" placeholder="Last known Address" rows="5" cols="50"></textarea>
+            </label>
+
+            <ion-checkbox ng-model="newPerson.willingToWork">Is Willing to Work?</ion-checkbox>
+
+            <label class="item item-input item-stacked-label" ng-show="newPerson.willingToWork">
+              <span class="input-label">Skills*&nbsp;<small style="font-size:50%">Separate skills by comma</small></span>
+              <textarea ng-model="newPerson.skills" type="text" placeholder="Separate each skill by a comma" rows="5" cols="50"></textarea>
+            </label>
+
+
+           <label class="item item-input item-stacked-label">
+              <span class="input-label">Story*&nbsp;<small ng-show="!isDescValid(newPerson.story)" style="font-size:50%">Min 100 chars</small></span>
+              <textarea ng-model="newPerson.story" type="text" placeholder="Detailed Story" rows="20" cols="50"></textarea>
+            </label>
+
+    </div>
+
+      <p class="center">
+      <button class="button button-block button-positive" ng-click="closeModal()">Close</button>
+      </p>
+  </ion-content>
+</ion-modal-view>

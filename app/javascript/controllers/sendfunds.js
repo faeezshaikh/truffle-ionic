@@ -54,7 +54,7 @@ app.controller('SendfundsController', function($scope,$ionicModal){
 
 
 
-
+    $scope.imageData = false;
 
     $ionicModal.fromTemplateUrl('views/modal.html', {
         scope: $scope,
