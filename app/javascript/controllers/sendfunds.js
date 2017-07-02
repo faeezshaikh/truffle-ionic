@@ -2,7 +2,7 @@
 var app = angular.module("mySimpleWalletDapp");
 
 
-app.controller('SendfundsController', function($scope,$ionicModal){
+app.controller('SendfundsController', function($scope,$ionicModal,$ionicScrollDelegate){
 
     $scope.accounts = web3.eth.accounts;
 
@@ -65,8 +65,11 @@ app.controller('SendfundsController', function($scope,$ionicModal){
     $scope.openComposer = function () {
         console.log('Opening Modal');
         $scope.modal.show();
+        $ionicScrollDelegate.$getByHandle('show-page').scrollTop(true);
     };
     $scope.closeModal = function () {
         $scope.modal.hide();
+        //  $scope.modal.remove();
+
     };
 });
