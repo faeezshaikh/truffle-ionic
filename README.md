@@ -94,3 +94,13 @@ sudo bower install --save fontawesome --allow-root
 ```
 
 For Font-awesome, include the fa.js script. Thats it.. No need for .css or .wof or any of font files
+
+
+Spinners: https://codepen.io/ionic/pen/GgwVON
+
+   <ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>
+
+Angular 1 / Ionic 1 Toast Msgs: https://github.com/Foxandxss/angular-toastr
+   
+
+   bower install angular-toastr

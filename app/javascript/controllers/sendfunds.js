@@ -2,8 +2,10 @@
 var app = angular.module("mySimpleWalletDapp");
 
 
-app.controller('SendfundsController', function($scope,$ionicModal,$ionicScrollDelegate){
+app.controller('SendfundsController', function($scope,$ionicModal,$ionicScrollDelegate,toastr){
 
+
+ toastr.success('Hello world!', 'Toastr fun!');
     $scope.accounts = web3.eth.accounts;
 
     $scope.depositFunds = function(address, amount) {

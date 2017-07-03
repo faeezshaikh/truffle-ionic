@@ -7,6 +7,7 @@ module.exports = {
       // "vendor/angular/angular.js",
       // "vendor/angular-route/angular-route.js",
       "vendor/ionic/js/ionic.bundle.js",
+      "vendor/angular-toastr/dist/angular-toastr.tpls.js",
       "javascript/app.js",
       "javascript/controllers/main.js",
       "javascript/controllers/sendfunds.js",
@@ -15,6 +16,7 @@ module.exports = {
     ],
     "app.css": [
       "vendor/ionic/css/ionic.min.css",
+      "vendor/angular-toastr/dist/angular-toastr.css",
       "stylesheets/app.css"
     
     ],

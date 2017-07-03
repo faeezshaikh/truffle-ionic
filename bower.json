@@ -15,7 +15,8 @@
     "angular": "^1.5.8",
     "angular-route": "^1.5.8",
     "font-awesome": "fontawesome#^4.7.0",
-    "ionic": "driftyco/ionic-bower#v1.1.1"
+    "ionic": "driftyco/ionic-bower#v1.1.1",
+    "angular-toastr": "^2.1.1"
   },
   "resolutions": {
     "angular": "^1.5.8",
