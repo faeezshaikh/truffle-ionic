@@ -80,4 +80,5 @@ app.controller('SendfundsController', function($scope,$ionicModal,$ionicScrollDe
 app.controller('SmartContractController', function($scope,$ionicModal,$ionicScrollDelegate){ 
 
     $scope.contractBalance = 100;
+    $scope.date = new Date();
 });
