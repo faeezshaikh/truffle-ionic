@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module("mySimpleWalletDapp");
+var app = angular.module("blockchainExpressDapp");
 
 
 app.factory('DappService', function(){
@@ -17,8 +17,7 @@ app.factory('DappService', function(){
     { id: 11, name: 'Julie', phone: '555-8765', gems: 6, miles: 5.8, img: 'https://www.directcouriersolutions.com/wp-content/uploads/2015/02/parcel-500-660-500x600.jpg' },
     { id: 12, name: 'Juliette', phone: '555-5678', gems: 8, miles: 6.0, img: 'http://www.book-cycle.org/wp-content/uploads/2015/08/parcel.png' }];
 
-    var ownerAccount;
-    var escrowAccount;
+  
     return {
       addPackage : function(pkg) {
         packages.push(pkg);

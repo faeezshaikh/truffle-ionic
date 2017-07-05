@@ -1,6 +1,6 @@
 
 
-var app = angular.module("mySimpleWalletDapp");
+var app = angular.module("blockchainExpressDapp");
 
 app.controller("PermissionsController", function ($scope) {
     SimpleWallet.deployed().then(function(contract) {

@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module("mySimpleWalletDapp");
+var app = angular.module("blockchainExpressDapp");
 
 
 app.controller('SendfundsController', function($scope,$ionicModal,$ionicScrollDelegate,toastr,DappService){
