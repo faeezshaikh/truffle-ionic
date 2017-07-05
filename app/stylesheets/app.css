@@ -62,3 +62,8 @@
 /* Custom color for Toggle */
 
 
+.bar-positive .button {
+    border-color: #ff6600;;;
+    background-color: #ff6600;;;
+    /*color: #fff;*/
+}
