@@ -97,6 +97,7 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
         confirmPopup.then(function (res) {
              if(res) {
                 $scope.modal.hide();
+                $ionicScrollDelegate.$getByHandle('packagesPage').scrollTop(true);
                 console.log('You are sure');
                 } else {
                 console.log('You are not sure');
