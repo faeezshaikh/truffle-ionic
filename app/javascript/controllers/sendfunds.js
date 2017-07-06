@@ -97,6 +97,12 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
 
     }
 
+    function updateBalance() {
+        var newBalance = DappService.getBalance() - $scope.form.cost;
+        DappService.setBalance(newBalance);
+        console.log('Balance set to: ', newBalance);
+    }
+
     $scope.showPopup = function (cost) {
         var confirmPopup = $ionicPopup.confirm({
             title: 'Confirm Purchase',
@@ -105,6 +111,7 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
         confirmPopup.then(function (res) {
              if(res) {
                 $scope.modal.hide();
+                updateBalance();
                 $ionicScrollDelegate.$getByHandle('packagesPage').scrollTop(true);
                 console.log('You are sure');
                 } else {
