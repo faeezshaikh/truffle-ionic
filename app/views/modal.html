@@ -115,18 +115,61 @@
             </label>
 
     <div class="item item-divider">
-      Speed & Cost: <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp{{form.cost}} &nbsp; {{days}} days
+      Speed & Cost: 
     </div>
-    <div>
-
+    <!--<div>
         <div class="item range range-balanced range-background-dark">
           <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;Slow
           <input type="range" name="volume" min="0" max="100" ng-model="form.cost" ng-change="onRangeChange()">
           <i class="fa fa-diamond fa-2x" aria-hidden="true"></i>&nbsp;Fast
         </div>
-     
+    </div>-->
 
-    </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <label class="item item-input">
+                  <span class="input-label">Days:</span>
+                  <span>{{days}} days</span>
+                </label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <label class="item item-input">
+                  <span class="input-label">Cost&nbsp;(<i class="fa fa-diamond" aria-hidden="true"></i>):</span>
+                  <span class="pull-right">{{form.cost | number:2}}</span>
+                </label>
+              </div>
+            </div>
+            <!--<div class="col">
+              <div class="card">
+                <label class="item item-input">
+                  <span class="input-label">Premium Received (<i class="ion ion-social-bitcoin"></i>) :</span>
+                  <span>{{premiumRecvd | number:2}}</span>
+                </label>
+              </div>
+            </div>-->
+
+          </div>
+<!--
+          <div class="item range range-positive">
+            <i class="icon ion-ios-sunny-outline"></i>0%
+            <input type="range" min="0" max="100"  step="5" ng-model="form.share" ng-change="onRangeChange1()">
+            <i class="icon ion-ios-sunny"></i>100%
+          </div>-->
+
+        <div class="item range range-balanced range-background-dark">
+          <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;Slow
+          <input type="range" name="volume" min="5" max="100" ng-model="form.cost" ng-change="onRangeChange()">
+          <i class="fa fa-diamond fa-2x" aria-hidden="true"></i>&nbsp;Fast
+        </div>
+
+
+
+
+
 
     </div>
 
