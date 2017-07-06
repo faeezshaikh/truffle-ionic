@@ -106,7 +106,7 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
     $scope.showPopup = function (cost) {
         var confirmPopup = $ionicPopup.confirm({
             title: 'Confirm Purchase',
-            template: 'This will debit ' + cost + ' BlockEx gems from your account.'
+            template: 'This will debit ' + $scope.form.cost + ' BlockEx gems from your account.'
         });
         confirmPopup.then(function (res) {
              if(res) {
