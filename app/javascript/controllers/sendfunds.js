@@ -2,7 +2,7 @@
 var app = angular.module("blockchainExpressDapp");
 
 
-app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService,$ionicPopup) {
+app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService,$ionicPopup,$timeout) {
 
 
     toastr.success('Hello world!', 'Toastr fun!');
@@ -65,6 +65,8 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
     };
 
     $scope.form = { 'cost': 0 };
+    // $scope.imgUrl = "https://dbiers.me/wp-content/uploads/2012/08/package-21.png";
+    $scope.imgUrl = "https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder.png";
 
     $scope.onRangeChange = function () {
         // console.log('Changed:',$scope.form.cost);
@@ -104,6 +106,23 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
                 }
         });
     };
+
+    $scope.showSpinner = false;
+    $scope.addPicture = function(bool) {
+        if(bool) {
+            console.log('Addng pic');
+            // $scope.showSpinner = true;
+            $scope.imgUrl ="https://sqeeqee.com/static/uploads/photos/2016/12/01/11/05/5f0aee85e4b4d5a8939352593c4d993a.gif" ;
+
+        $timeout( function(){
+                // $scope.showSpinner = false;
+                  $scope.imgUrl = "http://www.elllo.org/Assets/images/P0351/374-Marion-Package.jpg";
+
+        }, 1000 );
+           
+
+        }
+    }
 });
 
 

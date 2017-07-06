@@ -11,7 +11,8 @@
 
       <!--Image Starts -->
       <div class="text-center" ng-hide="imageData" ng-click="autoFill()">
-        <img class="full-image" ng-src="https://dbiers.me/wp-content/uploads/2012/08/package-21.png" style="width:50%;height:50%">
+        <img  class="full-image" ng-src="{{imgUrl}}" style="width:50%;height:50%">
+        <!--<ion-spinner ng-show="showSpinner" icon="ripple" class="spinner-assertive"></ion-spinner>-->
       </div>
 
       <div class="text-center" ng-show="imageData" ng-click="autoFill()">
