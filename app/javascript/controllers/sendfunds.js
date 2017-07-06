@@ -5,6 +5,12 @@ var app = angular.module("blockchainExpressDapp");
 app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService,$ionicPopup,$timeout) {
 
 
+    DappService.setBalance(1000);
+
+    $scope.getBalance = function() {
+        return DappService.getBalance();
+    }
+
     toastr.success('Hello world!', 'Toastr fun!');
     $scope.accounts = web3.eth.accounts;
 
