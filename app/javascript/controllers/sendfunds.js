@@ -2,17 +2,17 @@
 var app = angular.module("blockchainExpressDapp");
 
 
-app.controller('SendfundsController', function($scope,$ionicModal,$ionicScrollDelegate,toastr,DappService){
+app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService,$ionicPopup) {
 
 
- toastr.success('Hello world!', 'Toastr fun!');
+    toastr.success('Hello world!', 'Toastr fun!');
     $scope.accounts = web3.eth.accounts;
 
-    $scope.depositFunds = function(address, amount) {
-        SimpleWallet.deployed().then(function(contract) {
+    $scope.depositFunds = function (address, amount) {
+        SimpleWallet.deployed().then(function (contract) {
 
-            web3.eth.sendTransaction({from: address, to: contract.address, value: web3.toWei(amount, "ether")}, function(error, result) {
-                if(error) {
+            web3.eth.sendTransaction({ from: address, to: contract.address, value: web3.toWei(amount, "ether") }, function (error, result) {
+                if (error) {
                     $scope.has_errors = "I did not work";
                 } else {
                     $scope.transfer_success = true;
@@ -25,9 +25,9 @@ app.controller('SendfundsController', function($scope,$ionicModal,$ionicScrollDe
     };
 
 
-    $scope.withdrawFunds = function(address, amount) {
-        SimpleWallet.deployed().then(function(contract) {
-            contract.sendFunds(web3.toWei(amount, "ether"), address, {from: web3.eth.accounts[0], gas: 200000}).then(function () {
+    $scope.withdrawFunds = function (address, amount) {
+        SimpleWallet.deployed().then(function (contract) {
+            contract.sendFunds(web3.toWei(amount, "ether"), address, { from: web3.eth.accounts[0], gas: 200000 }).then(function () {
                 $scope.transfer_success = true;
                 $scope.$apply();
             }).catch(function (error) {
@@ -57,16 +57,58 @@ app.controller('SendfundsController', function($scope,$ionicModal,$ionicScrollDe
         $ionicScrollDelegate.$getByHandle('show-page').scrollTop(true);
     };
     $scope.closeModal = function () {
-        $scope.modal.hide();
+        
+
+        $scope.showPopup(50);
         //  $scope.modal.remove();
 
+    };
+
+    $scope.form = { 'cost': 0 };
+
+    $scope.onRangeChange = function () {
+        // console.log('Changed:',$scope.form.cost);
+
+        if ($scope.form.cost > 80 && $scope.form.cost < 90)
+            $scope.days = 1;
+        if ($scope.form.cost > 60 && $scope.form.cost < 80)
+            $scope.days = 3;
+
+        if ($scope.form.cost > 40 && $scope.form.cost < 60)
+            $scope.days = 6;
+        if ($scope.form.cost > 30 && $scope.form.cost < 40)
+            $scope.days = 7;
+        if ($scope.form.cost > 20 && $scope.form.cost < 30)
+            $scope.days = 10;
+        if ($scope.form.cost > 10 && $scope.form.cost < 20)
+            $scope.days = 15;
+        if ($scope.form.cost > 0 && $scope.form.cost < 10)
+            $scope.days = 20;
+
+
+
+    }
+
+    $scope.showPopup = function (cost) {
+        var confirmPopup = $ionicPopup.confirm({
+            title: 'Confirm Purchase',
+            template: 'This will debit ' + cost + ' BlockEx gems from your account.'
+        });
+        confirmPopup.then(function (res) {
+             if(res) {
+                $scope.modal.hide();
+                console.log('You are sure');
+                } else {
+                console.log('You are not sure');
+                }
+        });
     };
 });
 
 
 /// TODO: Externalize file
 
-app.controller('SmartContractController', function($scope,$ionicModal,$ionicScrollDelegate){ 
+app.controller('SmartContractController', function ($scope, $ionicModal, $ionicScrollDelegate) {
 
     $scope.contractBalance = 100;
     $scope.date = new Date();
