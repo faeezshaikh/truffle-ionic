@@ -11,7 +11,7 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
         return DappService.getBalance();
     }
 
-    toastr.success('Hello world!', 'Toastr fun!');
+    
     $scope.accounts = web3.eth.accounts;
 
     $scope.depositFunds = function (address, amount) {
@@ -132,7 +132,9 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
              if(res) {
                 $scope.modal.hide();
                 updateBalance();
+                DappService.addPackage($scope.form);
                 $ionicScrollDelegate.$getByHandle('packagesPage').scrollTop(true);
+                toastr.success('Request added to Blockchain!','Transation successfully mined.');
                 console.log('You are sure');
                 } else {
                 console.log('You are not sure');
@@ -176,6 +178,8 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
         'img': 'https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder.png',
         // 'cost': 0 
     };
+
+    
 
     }
 });

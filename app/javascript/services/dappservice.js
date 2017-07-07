@@ -42,6 +42,7 @@ app.factory('DappService', function(){
   
     return {
       addPackage : function(pkg) {
+        console.log('Adding package: ',pkg);
         packages.push(pkg);
       },
       getPackages : function() {

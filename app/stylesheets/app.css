@@ -67,3 +67,8 @@
     background-color: #ff6600;;;
     /*color: #fff;*/
 }
+
+
+.toast-success {
+  background-color:black;
+}

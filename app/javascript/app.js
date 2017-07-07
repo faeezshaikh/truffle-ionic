@@ -6,8 +6,10 @@ web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
 
  var app = angular.module("blockchainExpressDapp", ['ionic','toastr']);
 
+ 
 
-app.config(function($stateProvider, $urlRouterProvider) {
+
+app.config(function($stateProvider, $urlRouterProvider,toastrConfig) {
   $stateProvider
 
     .state('app', {
@@ -74,4 +76,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
   ;
   $urlRouterProvider.otherwise('/app/main');
+
+    angular.extend(toastrConfig, {
+    autoDismiss: false,
+    containerId: 'toast-container',
+    maxOpened: 0,    
+    newestOnTop: true,
+    positionClass: 'toast-bottom-full-width',
+    preventDuplicates: false,
+    preventOpenDuplicates: false,
+    target: 'body'
+  });
 })
