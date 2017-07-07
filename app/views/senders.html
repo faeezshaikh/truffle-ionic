@@ -28,7 +28,7 @@
 
 <div class="list">
  
-    <a class="item item-thumbnail-left item-icon-right" ng-repeat="sender in filtered = (friends | filter:searchText)" href="/#!/senders/{{sender.id}}">
+    <a class="item item-thumbnail-left item-icon-right" ng-repeat="sender in filtered = (friends | filter:searchText | orderBy:'id')" href="/#!/senders/{{sender.id}}">
       <img src="{{sender.img}}">
       <h2>{{sender.sender}}</h2>
       <p>{{sender.senderPhone}}</p>

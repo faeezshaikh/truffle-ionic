@@ -175,7 +175,9 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
         'fragile':true,
         'confirm':true,
         'instructions':'Please drop the package at the doorstep. Do not ring doorbell. Thanks!',
-        'img': 'https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder.png',
+        'img': 'http://www.elllo.org/Assets/images/P0351/374-Marion-Package.jpg',
+        'id': 0,
+        'miles': 300
         // 'cost': 0 
     };
 
