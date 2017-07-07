@@ -35,24 +35,24 @@
       </div>
       <label class="item item-input item-stacked-label">
               <span class="input-label">Address*&nbsp;<small ng-show="" style="font-size:50%">Some validation</small></span>
-              <input ng-model="newPerson.name" type="text" placeholder="Full Name">
+              <input ng-model="form.senderAddr" type="text" placeholder="Full Address">
             </label>
 
       <!--
             <label class="item item-input item-stacked-label">
                     <span class="input-label">DOB*&nbsp;</span>
-                          <input type="date" placeholder="MM/DD/YYYY" ng-model="newPerson.dob">
+                          <input type="date" placeholder="MM/DD/YYYY" ng-model="form.dob">
             </label>-->
 
       <label class="item item-input item-stacked-label">
               <span class="input-label">Phone&nbsp;<small  style="font-size:50%">Min 10 chars</small></span>
-              <input ng-model="newPerson.phone" type="text" placeholder="(314)-234-9876" maxlength="12"></textarea>
+              <input ng-model="form.senderPhone" type="text" placeholder="(314)-234-9876" maxlength="12"></textarea>
             </label>
 
 
       <label class="item item-input item-stacked-label">
               <span class="input-label">Email&nbsp;</span>
-              <input ng-model="newPerson.email" type="email" placeholder="someone@gmail.com"></textarea>
+              <input ng-model="form.senderEmail" type="email" placeholder="someone@gmail.com"></textarea>
             </label>
 
 
@@ -63,18 +63,18 @@
       </div>
       <label class="item item-input item-stacked-label">
               <span class="input-label">Address*&nbsp;<small ng-show="" style="font-size:50%">Some validation</small></span>
-              <input ng-model="newPerson.name" type="text" placeholder="Full Name">
+              <input ng-model="form.receiverAddr" type="text" placeholder="Full Name">
             </label>
 
       <label class="item item-input item-stacked-label">
               <span class="input-label">Phone&nbsp;<small  style="font-size:50%">Min 10 chars</small></span>
-              <input ng-model="newPerson.phone" type="text" placeholder="(314)-234-9876" maxlength="12"></textarea>
+              <input ng-model="form.recieverPhone" type="text" placeholder="(314)-234-9876" maxlength="12"></textarea>
             </label>
 
 
       <label class="item item-input item-stacked-label">
               <span class="input-label">Email&nbsp;</span>
-              <input ng-model="newPerson.email" type="email" placeholder="someone@gmail.com"></textarea>
+              <input ng-model="form.recieverEmail" type="email" placeholder="someone@gmail.com"></textarea>
             </label>
 
 
@@ -93,7 +93,7 @@
                       </div>
                       <div class="col col-50">
                         <label class="toggle pull-right">
-                          <input type="checkbox" ng-model="newPerson.useLocation">
+                          <input type="checkbox" ng-model="form.confirm">
                           <div class="track">
                             <div class="handle"></div>
                           </div>
@@ -105,13 +105,13 @@
 
 
 
-    <ion-checkbox class="checkbox-royal" ng-model="newPerson.willingToWork">Fragile?</ion-checkbox>
+    <ion-checkbox class="checkbox-royal" ng-model="form.fragile">Fragile?</ion-checkbox>
 
 
 
     <label class="item item-input item-stacked-label">
-              <span class="input-label">Instructions*&nbsp;<small ng-show="!isDescValid(newPerson.story)" style="font-size:50%">Min 100 chars</small></span>
-              <textarea ng-model="newPerson.story" type="text" placeholder="Detailed Story" rows="5" cols="50"></textarea>
+              <span class="input-label">Instructions*&nbsp;<small ng-show="!isDescValid(form.story)" style="font-size:50%">Min 100 chars</small></span>
+              <textarea ng-model="form.instructions" type="text" placeholder="Detailed Story" rows="5" cols="50"></textarea>
             </label>
 
     <div class="item item-divider">

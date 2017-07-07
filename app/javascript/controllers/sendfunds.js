@@ -70,7 +70,23 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
 
     };
 
-    $scope.form = { 'cost': 0 };
+    $scope.form = { 
+        'senderAddr':'',
+        'senderPhone': '',
+        'senderEmail': '',
+        'receiverAddr':'',
+        'recieverPhone': '',
+        'recieverEmail': '',
+        'gems':5,
+        'days':100,
+        'fragile':false,
+        'confirm':false,
+        'instructions':'',
+        'img': 'https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder.png',
+        'cost': 0 
+    };
+
+
     // $scope.imgUrl = "https://dbiers.me/wp-content/uploads/2012/08/package-21.png";
     $scope.imgUrl = "https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder.png";
 
@@ -130,11 +146,33 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
         $timeout( function(){
                 // $scope.showSpinner = false;
                   $scope.imgUrl = "http://www.elllo.org/Assets/images/P0351/374-Marion-Package.jpg";
+                  populateForm();
 
         }, 1000 );
            
 
         }
+    }
+
+    function populateForm() {
+
+
+    $scope.form = { 
+        'senderAddr':'123 Pine St. St. Louis MO 63101',
+        'senderPhone': '314-984-9845',
+        'senderEmail': 'faeez.shaikh@gmail.com',
+        'receiverAddr': '9445 Potter Rd. Chicago IL 94423',
+        'recieverPhone': '205-345-9545',
+        'recieverEmail': 'john@gmail.com',
+        'gems':5,
+        'days':100,
+        'fragile':true,
+        'confirm':true,
+        'instructions':'Please drop the package at the doorstep. Do not ring doorbell. Thanks!',
+        'img': 'https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder.png',
+        // 'cost': 0 
+    };
+
     }
 });
 
