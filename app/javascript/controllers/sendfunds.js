@@ -121,6 +121,10 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
         var newBalance = DappService.getBalance() - $scope.form.gems;
         DappService.setBalance(newBalance);
         console.log('Balance set to: ', newBalance);
+
+        var newSmartContractBalance = DappService.getSmartContractBalance() + $scope.form.gems;
+        DappService.setSmartContractBalance(newSmartContractBalance);
+        console.log('Smart Contract Balance set to: ', newSmartContractBalance);
     }
 
     $scope.showPopup = function (cost) {
@@ -189,8 +193,15 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
 
 /// TODO: Externalize file
 
-app.controller('SmartContractController', function ($scope, $ionicModal, $ionicScrollDelegate) {
+app.controller('SmartContractController', function ($scope, $ionicModal, $ionicScrollDelegate,DappService) {
 
-    $scope.contractBalance = 100;
+    $scope.contractBalance = DappService.getSmartContractBalance();
     $scope.date = new Date();
+
+
+    $scope.refreshContractBalance = function() {
+        $scope.contractBalance = DappService.getSmartContractBalance();
+        console.log('Refreshing Smart Contract Balance',$scope.contractBalance);
+    }
+
 });

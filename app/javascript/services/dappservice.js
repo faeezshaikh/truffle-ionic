@@ -38,7 +38,7 @@ app.factory('DappService', function(){
     }
 
   var balance;
-  var smartContractBalance;
+  var smartContractBalance = 0;
   
     return {
       addPackage : function(pkg) {
