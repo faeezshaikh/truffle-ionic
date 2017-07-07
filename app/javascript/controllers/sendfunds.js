@@ -147,7 +147,7 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
         if(bool) {
             console.log('Addng pic');
             // $scope.showSpinner = true;
-            $scope.imgUrl ="https://sqeeqee.com/static/uploads/photos/2016/12/01/11/05/5f0aee85e4b4d5a8939352593c4d993a.gif" ;
+            $scope.imgUrl ="http://animadomus.com/integration/img/gform-spinner.gif" ;
 
         $timeout( function(){
                 // $scope.showSpinner = false;
@@ -172,8 +172,8 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
         'recieverEmail': 'john@gmail.com',
         'gems':5,
         'days':100,
-        'fragile':true,
-        'confirm':true,
+        'fragile':false,
+        'confirm':false,
         'instructions':'Please drop the package at the doorstep. Do not ring doorbell. Thanks!',
         'img': 'http://www.elllo.org/Assets/images/P0351/374-Marion-Package.jpg',
         'id': 0,
