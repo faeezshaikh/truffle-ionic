@@ -70,6 +70,10 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
 
     };
 
+    $scope.cancel = function() {
+         $scope.modal.hide();
+    }
+
     $scope.form = { 
         'senderAddr':'',
         'senderPhone': '',
