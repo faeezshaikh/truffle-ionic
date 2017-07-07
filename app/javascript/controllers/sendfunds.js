@@ -118,11 +118,11 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
     }
 
     function updateBalance() {
-        var newBalance = DappService.getBalance() - $scope.form.gems;
+        var newBalance = DappService.getBalance() - parseInt($scope.form.gems);
         DappService.setBalance(newBalance);
         console.log('Balance set to: ', newBalance);
 
-        var newSmartContractBalance = DappService.getSmartContractBalance() + $scope.form.gems;
+        var newSmartContractBalance = DappService.getSmartContractBalance() + parseInt($scope.form.gems);
         DappService.setSmartContractBalance(newSmartContractBalance);
         console.log('Smart Contract Balance set to: ', newSmartContractBalance);
     }
