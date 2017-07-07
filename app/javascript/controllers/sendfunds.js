@@ -86,8 +86,8 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
         'fragile':false,
         'confirm':false,
         'instructions':'',
-        'img': 'https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder.png',
-        'cost': 0 
+        'img': 'https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder.png'
+
     };
 
 
@@ -95,30 +95,30 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
     $scope.imgUrl = "https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder.png";
 
     $scope.onRangeChange = function () {
-        // console.log('Changed:',$scope.form.cost);
+        // console.log('Changed:',$scope.form.gems);
 
-        if ($scope.form.cost > 80 && $scope.form.cost < 90)
-            $scope.days = 1;
-        if ($scope.form.cost > 60 && $scope.form.cost < 80)
-            $scope.days = 3;
+        if ($scope.form.gems > 80 && $scope.form.gems < 90)
+            $scope.form.days = 1;
+        if ($scope.form.gems > 60 && $scope.form.gems < 80)
+            $scope.form.days = 3;
 
-        if ($scope.form.cost > 40 && $scope.form.cost < 60)
-            $scope.days = 6;
-        if ($scope.form.cost > 30 && $scope.form.cost < 40)
-            $scope.days = 7;
-        if ($scope.form.cost > 20 && $scope.form.cost < 30)
-            $scope.days = 10;
-        if ($scope.form.cost > 10 && $scope.form.cost < 20)
-            $scope.days = 15;
-        if ($scope.form.cost > 0 && $scope.form.cost < 10)
-            $scope.days = 20;
+        if ($scope.form.gems > 40 && $scope.form.gems < 60)
+            $scope.form.days = 6;
+        if ($scope.form.gems > 30 && $scope.form.gems < 40)
+            $scope.form.days = 7;
+        if ($scope.form.gems > 20 && $scope.form.gems < 30)
+            $scope.form.days = 10;
+        if ($scope.form.gems > 10 && $scope.form.gems < 20)
+            $scope.form.days = 15;
+        if ($scope.form.gems > 0 && $scope.form.gems < 10)
+            $scope.form.days = 20;
 
 
 
     }
 
     function updateBalance() {
-        var newBalance = DappService.getBalance() - $scope.form.cost;
+        var newBalance = DappService.getBalance() - $scope.form.gems;
         DappService.setBalance(newBalance);
         console.log('Balance set to: ', newBalance);
     }
@@ -126,7 +126,7 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
     $scope.showPopup = function (cost) {
         var confirmPopup = $ionicPopup.confirm({
             title: 'Confirm Purchase',
-            template: 'This will debit ' + $scope.form.cost + ' BlockEx gems from your account.'
+            template: 'This will debit ' + $scope.form.gems + ' BlockEx gems from your account.'
         });
         confirmPopup.then(function (res) {
              if(res) {

@@ -131,7 +131,7 @@
               <div class="card">
                 <label class="item item-input">
                   <span class="input-label">Days:</span>
-                  <span>{{days}} days</span>
+                  <span>{{form.days}} days</span>
                 </label>
               </div>
             </div>
@@ -139,7 +139,7 @@
               <div class="card">
                 <label class="item item-input">
                   <span class="input-label">Cost&nbsp;(<i class="fa fa-diamond" aria-hidden="true"></i>):</span>
-                  <span class="pull-right">{{form.cost | number:2}}</span>
+                  <span class="pull-right">{{form.gems | number:2}}</span>
                 </label>
               </div>
             </div>
@@ -162,7 +162,7 @@
 
         <div class="item range range-balanced range-background-dark">
           <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;Slow
-          <input type="range" name="volume" min="5" max="100" ng-model="form.cost" ng-change="onRangeChange()">
+          <input type="range" name="volume" min="5" max="100" ng-model="form.gems" ng-change="onRangeChange()">
           <i class="fa fa-diamond fa-2x" aria-hidden="true"></i>&nbsp;Fast
         </div>
 
