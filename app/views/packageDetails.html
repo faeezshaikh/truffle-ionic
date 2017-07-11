@@ -1,11 +1,16 @@
-<h1>Package Details</h1>
 
-<p>Package Id : {{packageId}}</p>
-
-
-  <ion-header-bar class="bar-positive">
+  <!--<ion-header-bar class="bar-positive">
     <h1 class="title">Package Details</h1>
-  </ion-header-bar>
+  </ion-header-bar>-->
+
+
+<ion-view view-title="Package Details">
+
+    <ion-nav-buttons side="right">
+      <button class="button" ng-click="doSomething()">
+          Balance: <strong><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp {{getBalance()}} </strong>
+      </button>
+    </ion-nav-buttons>
 
 
   <ion-content class="padding" delegate-handle="show-page">
@@ -16,6 +21,10 @@
       <!--Image Starts -->
       <div class="text-center" ng-hide="imageData" ng-click="autoFill()">
         <img  class="full-image" ng-src="{{package.img}}" style="width:50%;height:50%">
+      </div>
+
+       <div class="text-center">
+        <button class="button button-positive" ng-click="addPicture(true)"><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{package.gems}}</button>
       </div>
       <!--Image Ends-->
 
@@ -98,17 +107,15 @@
 
     <label class="item item-input item-stacked-label">
               <span class="input-label">Instructions*&nbsp;<small ng-show="!isDescValid(form.story)" style="font-size:50%">Min 100 chars</small></span>
-              <textarea ng-model="package.instructions" type="text" placeholder="Detailed Story" rows="5" cols="50"></textarea>
+              <textarea ng-model="package.instructions" type="text" placeholder="Detailed Story" rows="2" cols="10"></textarea>
             </label>
     </div>
 
     <div class="center row">
       <div class="col">
-        <button class="button button-block button-positive" ng-click="cancel()">Cancel</button>
-      </div>
-      <div class="col">
-        <button class="button button-block button-positive" ng-click="closeModal()">Submit</button>
+        <button class="button button-block button-positive" ng-click="showConfirm()">Pick Up</button>
       </div> 
 
     </div>
   </ion-content>
+</ion-view>

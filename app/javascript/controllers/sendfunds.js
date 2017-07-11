@@ -206,7 +206,7 @@ app.controller('SmartContractController', function ($scope, $ionicModal, $ionicS
 
 });
 
-app.controller("PackageDetailsController", function($scope,DappService,$stateParams,$ionicModal) {
+app.controller("PackageDetailsController", function($scope,DappService,$stateParams,$ionicModal,$ionicPopup) {
     //   var policySelected = {};
     //   $scope.form = {'share' : 0};
     //   $scope.myCoverage = $scope.premiumRecvd = 0;
@@ -214,6 +214,29 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
       $scope.packageId = $stateParams.id;
       $scope.package = DappService.getPackage($scope.packageId);
       console.log('Package..=>', $scope.package);
+      var escrow = $scope.package.gems * 2;
 
+      $scope.getBalance = function() {
+        return DappService.getBalance();
+      }
+
+
+      $scope.showConfirm = function() {
+            var confirmPopup = $ionicPopup.confirm({
+            title: 'Confirm Pick up',
+            template: 'This will debit ' + escrow + ' BlockEx gems from your account and deposit them to the Smart Contract (Escrow)'
+        });
+        confirmPopup.then(function (res) {
+             if(res) {
+                updateBalance();
+                DappService.addPackage($scope.form);
+                $ionicScrollDelegate.$getByHandle('packagesPage').scrollTop(true);
+                toastr.success('Request added to Blockchain!','Transation successfully mined.');
+                console.log('You are sure');
+                } else {
+                console.log('You are not sure');
+                }
+        });
+      }
 });
 
