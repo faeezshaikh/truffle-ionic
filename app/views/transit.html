@@ -1,0 +1,40 @@
+<ion-view view-title="Packages in Transit">
+
+   <ion-nav-buttons side="right">
+      <button class="button" ng-click="doSomething()">
+          Balance: <strong><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp {{getBalance()}} </strong>
+      </button>
+    </ion-nav-buttons>
+
+  <ion-content delegate-handle="transitPage">
+
+  <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input  type="search" placeholder="Search" ng-model="searchText">
+      </label>
+      <!--<button  class="button button-icon ion-android-cancel" style="color:white;" ng-click="searchText=''"></button>-->
+      	
+      &nbsp;	<span style="color:#660099;">({{ filtered.length}})</span>
+        
+    </div>
+  
+
+<div class="list">
+ 
+    <a class="item item-thumbnail-left item-icon-right" ng-repeat="package in filtered = (transitPackages | filter:searchText | orderBy:'id')" href="#/app/packages/{{package.id}}">
+      <img src="{{package.img}}">
+      <h2>{{package.package}}</h2>
+      <p>{{package.packagePhone}}</p>
+      <p><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{package.gems}}</p>
+      <p><i class="ion-ios-navigate"></i>&nbsp;{{package.miles}} miles away</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+    </a>
+</div>
+  </ion-content>
+  <div style="text-align:center;">
+    <button class="button button-float" ng-click="openComposer()">
+	        <i class="icon ion-plus"></i>
+	  </button>
+    </div>
+</ion-view>

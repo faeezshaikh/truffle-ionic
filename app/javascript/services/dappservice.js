@@ -56,6 +56,7 @@ app.factory('DappService', function(){
         }
       },
       getPackages : function() {
+        console.log('Returning Packages: ', packages);
         return packages;
       },
       getPackage : function(id) {

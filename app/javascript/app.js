@@ -42,7 +42,7 @@ app.config(function($stateProvider, $urlRouterProvider,toastrConfig) {
       views: {
         'menuContent': {
           templateUrl: 'views/sendfunds.html',
-          controller: 'Packages'
+          controller: 'SendfundsController'
         }
       }
     })
@@ -55,7 +55,15 @@ app.config(function($stateProvider, $urlRouterProvider,toastrConfig) {
         }
       }
     })
-
+  .state('app.transit', {
+      url: '/transit',
+      views: {
+        'menuContent': {
+          templateUrl: 'views/transit.html',
+          controller: 'TransitController'
+        }
+      }
+    })
     .state('app.packages', {
       url: '/packages',
       views: {
