@@ -206,7 +206,7 @@ app.controller('SmartContractController', function ($scope, $ionicModal, $ionicS
 
 });
 
-app.controller("PackageDetailsController", function($scope,DappService,$stateParams,$ionicModal,$ionicPopup) {
+app.controller("PackageDetailsController", function($scope,DappService,$stateParams,$ionicModal,$ionicPopup,$ionicScrollDelegate, toastr) {
     //   var policySelected = {};
     //   $scope.form = {'share' : 0};
     //   $scope.myCoverage = $scope.premiumRecvd = 0;
@@ -215,8 +215,10 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
       $scope.package = DappService.getPackage($scope.packageId);
       console.log('Package..=>', $scope.package);
       var escrow = $scope.package.gems * 2;
+      var pkg = $scope.package;
 
       $scope.getBalance = function() {
+          console.log('Balance is :',DappService.getBalance());
         return DappService.getBalance();
       }
 
@@ -228,15 +230,28 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
         });
         confirmPopup.then(function (res) {
              if(res) {
-                updateBalance();
-                DappService.addPackage($scope.form);
-                $ionicScrollDelegate.$getByHandle('packagesPage').scrollTop(true);
-                toastr.success('Request added to Blockchain!','Transation successfully mined.');
+                updateBalance(escrow);
+                pkg.status = 'InTransit';
+                DappService.updatePackage(pkg);
+                $ionicScrollDelegate.$getByHandle('pkgDetailspage').scrollTop(true);
+                toastr.success('Pickup added to Blockchain!','Transation successfully mined.');
                 console.log('You are sure');
                 } else {
                 console.log('You are not sure');
                 }
         });
       }
+
+
+
+    function updateBalance(escrow) {
+        var newBalance = DappService.getBalance() - parseInt(escrow);
+        DappService.setBalance(newBalance);
+        console.log('Balance set to: ', newBalance);
+
+        var newSmartContractBalance = DappService.getSmartContractBalance() + parseInt(escrow);
+        DappService.setSmartContractBalance(newSmartContractBalance);
+        console.log('Smart Contract Balance set to: ', newSmartContractBalance);
+    }
 });
 
