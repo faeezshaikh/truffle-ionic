@@ -205,3 +205,12 @@ app.controller('SmartContractController', function ($scope, $ionicModal, $ionicS
     }
 
 });
+
+app.controller("PackageDetailsController", function($scope,DappService,$stateParams,$ionicModal) {
+    //   var policySelected = {};
+    //   $scope.form = {'share' : 0};
+    //   $scope.myCoverage = $scope.premiumRecvd = 0;
+
+      $scope.packageId = $stateParams.id;
+});
+

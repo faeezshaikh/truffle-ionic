@@ -65,6 +65,15 @@ app.config(function($stateProvider, $urlRouterProvider,toastrConfig) {
         }
       }
     })
+       .state('app.packageDetails', {
+      url: '/packages/:id',
+      views: {
+        'menuContent': {
+          templateUrl: 'views/packageDetails.html',
+          controller: 'PackageDetailsController'
+        }
+      }
+    })
      .state('app.contract', {
       url: '/contract',
       views: {
