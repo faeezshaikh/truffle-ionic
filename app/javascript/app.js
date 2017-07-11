@@ -56,8 +56,8 @@ app.config(function($stateProvider, $urlRouterProvider,toastrConfig) {
       }
     })
 
-    .state('app.senders', {
-      url: '/senders',
+    .state('app.packages', {
+      url: '/packages',
       views: {
         'menuContent': {
           templateUrl: 'views/packages.html',
