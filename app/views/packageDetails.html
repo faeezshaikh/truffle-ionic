@@ -25,6 +25,7 @@
 
        <div class="text-center">
         <button class="button button-positive" ng-click="addPicture(true)"><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{package.gems}}</button>
+        <p>Status: {{package.status}}</p>
       </div>
       <!--Image Ends-->
 
@@ -112,10 +113,12 @@
     </div>
 
     <div class="center row">
-      <div class="col">
+      <div ng-show="{{package.status == 'ready'}}" class="col">
         <button class="button button-block button-positive" ng-click="showConfirm()">Pick Up</button>
       </div> 
-
+       <div ng-show="{{package.status == 'InTransit'}}" class="col">
+        <button class="button button-block button-positive" ng-click="showConfirm()">Pick Up</button>
+      </div> 
     </div>
   </ion-content>
 </ion-view>
