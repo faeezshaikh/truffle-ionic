@@ -212,5 +212,8 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
     //   $scope.myCoverage = $scope.premiumRecvd = 0;
 
       $scope.packageId = $stateParams.id;
+      var pkg = DappService.getPackage($scope.packageId);
+      console.log('Package..=>', pkg);
+      
 });
 

@@ -48,6 +48,9 @@ app.factory('DappService', function(){
       getPackages : function() {
         return packages;
       },
+      getPackage : function(id) {
+        return packages[id];
+      },
       getBalance : function() {
         return balance;
       },
