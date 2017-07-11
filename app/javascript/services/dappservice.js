@@ -44,12 +44,18 @@ app.factory('DappService', function(){
       addPackage : function(pkg) {
         console.log('Adding package: ',pkg);
         packages.push(pkg);
+        console.log('New pkgs list: ',packages);
       },
       getPackages : function() {
         return packages;
       },
       getPackage : function(id) {
-        return packages[id-1];
+        for(i=0;i<packages.length;i++) {
+          if(packages[i].id == id) {
+            return packages[i];
+          }
+        }
+        // return packages[id-1];
       },
       getBalance : function() {
         return balance;
