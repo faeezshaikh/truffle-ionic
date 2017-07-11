@@ -5,12 +5,6 @@ var app = angular.module("blockchainExpressDapp");
 app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService,$ionicPopup,$timeout) {
 
 
-    DappService.setBalance(1000);
-
-    $scope.getBalance = function() {
-        return DappService.getBalance();
-    }
-
     
     $scope.accounts = web3.eth.accounts;
 
@@ -44,7 +38,16 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
         });
 
     }
+});
 
+app.controller('PackagesController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService,$ionicPopup,$timeout) {
+
+
+    DappService.setBalance(1000);
+
+    $scope.getBalance = function() {
+        return DappService.getBalance();
+    }
 
 
     $scope.friends = DappService.getPackages();
