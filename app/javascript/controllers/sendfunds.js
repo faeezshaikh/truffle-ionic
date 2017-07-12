@@ -248,6 +248,24 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
       }
 
 
+       $scope.confirmDelivery = function() {
+            var confirmPopup = $ionicPopup.confirm({
+            title: 'Confirm Delivery',
+            template: 'This will transfer ' + pkg.gems + ' BlockEx gems from the Smart Contract (Escrow) to the carrier.'
+        });
+        confirmPopup.then(function (res) {
+             if(res) {
+                updateBalanceOnDelivery(pkg.gems);
+                pkg.status = 'Delivered';
+                DappService.updatePackage(pkg);
+                $ionicScrollDelegate.$getByHandle('pkgDetailspage').scrollTop(true);
+                toastr.success('Delivery updated on Blockchain!','Transation successfully mined.');
+                } else {
+                // console.log('You are not sure');
+                }
+        });
+      }
+
 
     function updateBalance(escrow) {
         var newBalance = DappService.getBalance() - parseInt(escrow);
@@ -255,6 +273,16 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
         console.log('Balance set to: ', newBalance);
 
         var newSmartContractBalance = DappService.getSmartContractBalance() + parseInt(escrow);
+        DappService.setSmartContractBalance(newSmartContractBalance);
+        console.log('Smart Contract Balance set to: ', newSmartContractBalance);
+    }
+
+    function updateBalanceOnDelivery(amt) {
+        var newBalance = DappService.getBalance() + parseInt(amt);
+        DappService.setBalance(newBalance);
+        console.log('Balance set to: ', newBalance);
+
+        var newSmartContractBalance = DappService.getSmartContractBalance() - parseInt(amt);
         DappService.setSmartContractBalance(newSmartContractBalance);
         console.log('Smart Contract Balance set to: ', newSmartContractBalance);
     }
