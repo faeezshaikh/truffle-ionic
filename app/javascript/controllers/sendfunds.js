@@ -43,7 +43,7 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
 app.controller('PackagesController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService,$ionicPopup,$timeout) {
 
 
-    DappService.setBalance(1000);
+    DappService.setBalance(10000);
 
     $scope.getBalance = function() {
         return DappService.getBalance();
@@ -84,8 +84,8 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         'receiverAddr':'',
         'recieverPhone': '',
         'recieverEmail': '',
-        'gems':5,
-        'days':100,
+        'gems':50,
+        'days':20,
         'fragile':false,
         'confirm':false,
         'instructions':'',
@@ -100,20 +100,20 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
     $scope.onRangeChange = function () {
         // console.log('Changed:',$scope.form.gems);
 
-        if ($scope.form.gems > 80 && $scope.form.gems < 90)
+        if ($scope.form.gems > 800 && $scope.form.gems < 900)
             $scope.form.days = 1;
-        if ($scope.form.gems > 60 && $scope.form.gems < 80)
+        if ($scope.form.gems > 600 && $scope.form.gems < 800)
             $scope.form.days = 3;
 
-        if ($scope.form.gems > 40 && $scope.form.gems < 60)
+        if ($scope.form.gems > 400 && $scope.form.gems < 600)
             $scope.form.days = 6;
-        if ($scope.form.gems > 30 && $scope.form.gems < 40)
+        if ($scope.form.gems > 300 && $scope.form.gems < 400)
             $scope.form.days = 7;
-        if ($scope.form.gems > 20 && $scope.form.gems < 30)
+        if ($scope.form.gems > 200 && $scope.form.gems < 300)
             $scope.form.days = 10;
-        if ($scope.form.gems > 10 && $scope.form.gems < 20)
+        if ($scope.form.gems > 100 && $scope.form.gems < 200)
             $scope.form.days = 15;
-        if ($scope.form.gems > 0 && $scope.form.gems < 10)
+        if ($scope.form.gems > 0 && $scope.form.gems < 100)
             $scope.form.days = 20;
 
 
@@ -177,8 +177,8 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         'receiverAddr': '9445 Potter Rd. Chicago IL 94423',
         'recieverPhone': '205-345-9545',
         'recieverEmail': 'john@gmail.com',
-        'gems':5,
-        'days':100,
+        'gems':50,
+        'days':20,
         'fragile':false,
         'confirm':false,
         'instructions':'Please drop the package at the doorstep. Do not ring doorbell. Thanks!',

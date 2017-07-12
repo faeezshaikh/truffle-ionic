@@ -5,7 +5,7 @@
 
    <ion-nav-buttons side="right">
       <button class="button" ng-click="doSomething()">
-          Balance: <strong><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp {{getBalance()}} </strong>
+          Balance: <strong><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp {{getBalance() | number}} </strong>
       </button>
     </ion-nav-buttons>
 
@@ -33,7 +33,7 @@
       <span class="badge badge-assertive" ng-show="sender.status == 'InTransit'">In Transit</span> 
       <h2>{{sender.sender}}</h2>
       <p>{{sender.senderPhone}}</p>
-      <p><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{sender.gems}} / <i class="ion-social-usd"></i>&nbsp;{{sender.gems/100 | number:2}}</p>
+      <p><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{sender.gems}} / <i class="ion-social-usd"></i>&nbsp;{{sender.gems/10 | number:2}}</p>
       <p><i class="ion-ios-navigate"></i>&nbsp;{{sender.miles}} miles away</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
     </a>
