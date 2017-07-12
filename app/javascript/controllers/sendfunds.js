@@ -142,6 +142,7 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
                 DappService.addPackage($scope.form);
                 $ionicScrollDelegate.$getByHandle('packagesPage').scrollTop(true);
                 toastr.success('Request added to Blockchain!','Transation successfully mined.');
+                // $scope.apply(); // Bug --> Button not updating after Pick up.
                 console.log('You are sure');
                 } else {
                 console.log('You are not sure');
