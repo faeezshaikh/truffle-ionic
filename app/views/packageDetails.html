@@ -23,10 +23,20 @@
         <img  class="full-image" ng-src="{{package.img}}" style="width:50%;height:50%">
       </div>
 
+<!-- 
        <div class="text-center">
-        <button class="button button-outline  button-positive" ng-click="addPicture(true)"><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{package.gems}}  / <i class="ion-social-usd"></i>&nbsp;{{package.gems/10 | number:2}}</button>
-        <!-- <p>Status: {{package.status}}</p> -->
-      </div>
+        <button class="button button-outline  button-positive" ><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{package.gems}}  / <i class="ion-social-usd"></i>&nbsp;{{package.gems/10 | number:2}}</button>
+        <button class="button button-outline  button-positive" >{{package.status}} </button>
+      </div> -->
+
+    <div class="center row">
+      <div  class="col">
+          <button class="button  button-block button-outline  button-positive" ><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{package.gems}}  / <i class="ion-social-usd"></i>&nbsp;{{package.gems/10 | number:2}}</button>
+      </div> 
+       <div  class="col">
+        <button class="button button-block button-outline  button-positive" >Status: {{package.status}} </button>
+      </div> 
+    </div>
       <!--Image Ends-->
 
       <p></p>
