@@ -20,6 +20,15 @@
     color: #fff;
 }
 
+.button.button-positive.button-outline {
+    border-color: transparent;
+    background-color: transparent;
+    /* color: #ff6600; */
+    color: black;
+    font-size: x-large;
+}
+
+
 .button.button-positive.activated {
     background-color: #660099;
 }
