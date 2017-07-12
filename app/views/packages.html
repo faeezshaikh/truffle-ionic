@@ -31,6 +31,7 @@
     <a class="item item-thumbnail-left item-icon-right" ng-repeat="sender in filtered = (friends | filter:searchText | orderBy:'id')" href="#/app/packages/{{sender.id}}">
       <img src="{{sender.img}}">
       <span class="badge badge-assertive" ng-show="sender.status == 'InTransit'">In Transit</span> 
+      <span class="badge badge-balanced" ng-show="sender.status == 'Delivered'">Delivered</span> 
       <h2>{{sender.sender}}</h2>
       <p>{{sender.senderPhone}}</p>
       <p><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{sender.gems}} / <i class="ion-social-usd"></i>&nbsp;{{sender.gems/10 | number:2}}</p>
