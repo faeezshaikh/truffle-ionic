@@ -184,7 +184,8 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         'instructions':'Please drop the package at the doorstep. Do not ring doorbell. Thanks!',
         'img': 'http://www.elllo.org/Assets/images/P0351/374-Marion-Package.jpg',
         'id': 0,
-        'miles': 300
+        'miles': 300,
+        'status':'ready'
         // 'cost': 0 
     };
 
