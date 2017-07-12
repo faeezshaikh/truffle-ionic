@@ -77,6 +77,11 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
          $scope.modal.hide();
     }
 
+    $scope.delete = function(pkg) {
+        console.log('Deleting pkg',pkg);
+        pkg.hidden = true;
+        DappService.updatePackage(pkg);
+    }
     $scope.form = { 
         'senderAddr':'',
         'senderPhone': '',
