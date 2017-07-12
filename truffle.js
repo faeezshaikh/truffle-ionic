@@ -13,6 +13,7 @@ module.exports = {
       "javascript/controllers/sendfunds.js",
       "javascript/controllers/showevents.js",
       "javascript/controllers/permissions.js",
+      "javascript/controllers/controllers.js",
       "javascript/services/dappservice.js"
     ],
     "app.css": [
