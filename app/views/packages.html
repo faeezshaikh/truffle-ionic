@@ -26,9 +26,9 @@
       </div>-->
 
 
-<div class="list">
+<ion-list class="list" can-swipe="true">
  
-    <a class="item item-thumbnail-left item-icon-right" ng-repeat="sender in filtered = (friends | filter:searchText | orderBy:'id')" href="#/app/packages/{{sender.id}}">
+    <ion-item  class="item item-thumbnail-left item-icon-right " ng-repeat="sender in filtered = (friends | filter:searchText | orderBy:'id')" href="#/app/packages/{{sender.id}}">
       <img src="{{sender.img}}">
       <span class="badge badge-assertive" ng-show="sender.status == 'InTransit'">In Transit</span> 
       <span class="badge badge-balanced" ng-show="sender.status == 'Delivered'">Delivered</span> 
@@ -37,8 +37,11 @@
       <p><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{sender.gems}} / <i class="ion-social-usd"></i>&nbsp;{{sender.gems/10 | number:2}}</p>
       <p><i class="ion-ios-navigate"></i>&nbsp;{{sender.miles}} miles away</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
-    </a>
-</div>
+
+        <ion-option-button class="button-balanced" ng-click="foo(district); clicked=!clicked;"><i ng-class="clicked ? 'icon ion-ios-heart-outline' : 'icon ion-heart'"></i></ion-option-button>
+         <ion-option-button class="button-assertive " ng-click="goo(district)"><i class="icon ion-trash-a"></i></ion-option-button>
+    </ion-item >
+</ion-list>
   </ion-content>
   <div style="text-align:center;">
     <button class="button button-float" ng-click="openComposer()">
