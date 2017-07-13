@@ -14,17 +14,38 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         $scope.person2Addr = web3.eth.accounts[1];
 
 
-            contract.setBalance(web3.toWei(100000, "ether"), web3.eth.accounts[1], { from: web3.eth.accounts[0], gas: 200000 }).then(function () {
-                console.log('Balance of 1st Person set to 10,000');
-                $scope.transfer_success = true;
-                $scope.$apply();
-            }).catch(function (error) {
-                console.error(error);
-                $scope.has_errors = error;
-                $scope.$apply();
-            });
+            // contract.setBalance(web3.toWei(100000, "ether"), web3.eth.accounts[1], { from: web3.eth.accounts[0], gas: 200000 }).then(function () {
+            //     console.log('Balance of 1st Person set to 10,000');
+            //     $scope.transfer_success = true;
+            //     $scope.$apply();
+            // }).catch(function (error) {
+            //     console.error(error);
+            //     $scope.has_errors = error;
+            //     $scope.$apply();
+            // });
 
-            var val = web3.eth.getBalance(web3.eth.accounts[0]);
+           
+
+
+            // DappService.setBalance(balance);
+
+            //    contract.queryBalance.call(web3.eth.accounts[1]).then(function(result) {
+            //                 console.log('Retrieved Balance from BlockChain for Person 1 :', result);
+            //                 var balance = result.toNumber();
+            //                 console.log(' Balance To number from BlockChain for Person 1 :', balance);
+            //                 DappService.setBalance(balance);
+            //     });
+
+           
+    });
+
+    $scope.doSomething = function() {
+        console.log('Sending Txn on Blockchain')
+         web3.eth.sendTransaction({from: web3.eth.accounts[2], to: web3.eth.accounts[3], value: web3.toWei(1, "ether")});
+    }
+
+    function getAccountBalances() {
+             var val = web3.eth.getBalance(web3.eth.accounts[0]);
             var balance = web3.fromWei(val,'ether').toNumber()
             console.log('Retrieved Balance from BlockChain for Person 0 :', balance );
 
@@ -44,22 +65,10 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
             var balance3 = web3.fromWei(val3,'ether').toNumber()
             console.log('Retrieved Balance from BlockChain for Person 3 :', balance3 );
 
-
-
-            // DappService.setBalance(balance);
-
-            //    contract.queryBalance.call(web3.eth.accounts[1]).then(function(result) {
-            //                 console.log('Retrieved Balance from BlockChain for Person 1 :', result);
-            //                 var balance = result.toNumber();
-            //                 console.log(' Balance To number from BlockChain for Person 1 :', balance);
-            //                 DappService.setBalance(balance);
-            //     });
-
-           
-    });
-
+    }
    
     $scope.getBalance = function() {
+        getAccountBalances();
         return DappService.getBalance();
     }
 
