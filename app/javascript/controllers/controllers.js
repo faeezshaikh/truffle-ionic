@@ -2,32 +2,20 @@
 var app = angular.module("blockchainExpressDapp");
 
 
-app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService,$ionicPopup,$timeout) {
+app.controller('PackagesController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService,$ionicPopup,$timeout) {
 
 
-    
-    $scope.accounts = web3.eth.accounts;
 
-    $scope.depositFunds = function (address, amount) {
-        SimpleWallet.deployed().then(function (contract) {
+    BlockexGem.deployed().then(function(contract) {
+        $scope.contractBalanceInEther = web3.fromWei(web3.eth.getBalance(contract.address).toNumber(), "ether");
+        $scope.contract_address = contract.address;
 
-            web3.eth.sendTransaction({ from: address, to: contract.address, value: web3.toWei(amount, "ether") }, function (error, result) {
-                if (error) {
-                    $scope.has_errors = "I did not work";
-                } else {
-                    $scope.transfer_success = true;
-                }
-                $scope.$apply();
-            });
-        });
+        $scope.person1Addr = web3.eth.accounts[0];
+        $scope.person2Addr = web3.eth.accounts[1];
 
 
-    };
-
-
-    $scope.withdrawFunds = function (address, amount) {
-        SimpleWallet.deployed().then(function (contract) {
-            contract.sendFunds(web3.toWei(amount, "ether"), address, { from: web3.eth.accounts[0], gas: 200000 }).then(function () {
+            contract.setBalance(web3.toWei(100000, "ether"), web3.eth.accounts[1], { from: web3.eth.accounts[0], gas: 200000 }).then(function () {
+                console.log('Balance of 1st Person set to 10,000');
                 $scope.transfer_success = true;
                 $scope.$apply();
             }).catch(function (error) {
@@ -35,15 +23,49 @@ app.controller('SendfundsController', function ($scope, $ionicModal, $ionicScrol
                 $scope.has_errors = error;
                 $scope.$apply();
             });
-        });
 
-    }
-});
-
-app.controller('PackagesController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService,$ionicPopup,$timeout) {
+            var val = web3.eth.getBalance(web3.eth.accounts[0]);
+            var balance = web3.fromWei(val,'ether').toNumber()
+            console.log('Retrieved Balance from BlockChain for Person 0 :', balance );
 
 
-    DappService.setBalance(10000);
+            var val1 = web3.eth.getBalance(web3.eth.accounts[1]);
+            var balance1 = web3.fromWei(val1,'ether').toNumber()
+            console.log('Retrieved Balance from BlockChain for Person 1 :', balance1 );
+
+
+            var val2 = web3.eth.getBalance(web3.eth.accounts[2]);
+            var balance2 = web3.fromWei(val2,'ether').toNumber()
+            console.log('Retrieved Balance from BlockChain for Person 2 :', balance2 );
+
+
+
+            var val3 = web3.eth.getBalance(web3.eth.accounts[3]);
+            var balance3 = web3.fromWei(val3,'ether').toNumber()
+            console.log('Retrieved Balance from BlockChain for Person 3 :', balance3 );
+
+
+
+            // var val4 = web3.eth.getBalance(web3.eth.accounts[4]);
+            // var balance4 = web3.fromWei(val4,'ether').toNumber()
+            // console.log('Retrieved Balance from BlockChain for Person 4 :', balance4 );
+
+            // DappService.setBalance(balance);
+
+            //    contract.queryBalance.call(web3.eth.accounts[1]).then(function(result) {
+            //                 console.log('Retrieved Balance from BlockChain for Person 1 :', result);
+            //                 var balance = result.toNumber();
+            //                 console.log(' Balance To number from BlockChain for Person 1 :', balance);
+            //                 DappService.setBalance(balance);
+            //     });
+
+           
+    });
+
+   
+
+
+
 
     $scope.getBalance = function() {
         return DappService.getBalance();

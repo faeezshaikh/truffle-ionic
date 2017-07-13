@@ -16,45 +16,45 @@ app.config(function($stateProvider, $urlRouterProvider,toastrConfig) {
     url: '/app',
     abstract: true,
     templateUrl: 'views/menu.html',
-    controller: 'MainController'
+    controller: 'PackagesController'
   })
 
-    .state('app.main', {
-      url: '/main',
-      views: {
-        'menuContent': {
-          templateUrl: 'views/main.html',
-          controller: 'MainController'
-        }
-      }
-    })
- .state('app.events', {
-      url: '/events',
-      views: {
-        'menuContent': {
-          templateUrl: 'views/events.html',
-          controller: 'ShoweventsController'
-        }
-      }
-    })
- .state('app.sendfunds', {
-      url: '/sendfunds',
-      views: {
-        'menuContent': {
-          templateUrl: 'views/sendfunds.html',
-          controller: 'SendfundsController'
-        }
-      }
-    })
- .state('app.permissions', {
-      url: '/permissions',
-      views: {
-        'menuContent': {
-          templateUrl: 'views/permissions.html',
-          controller: 'PermissionsController'
-        }
-      }
-    })
+//     .state('app.main', {
+//       url: '/main',
+//       views: {
+//         'menuContent': {
+//           templateUrl: 'views/main.html',
+//           controller: 'MainController'
+//         }
+//       }
+//     })
+//  .state('app.events', {
+//       url: '/events',
+//       views: {
+//         'menuContent': {
+//           templateUrl: 'views/events.html',
+//           controller: 'ShoweventsController'
+//         }
+//       }
+//     })
+//  .state('app.sendfunds', {
+//       url: '/sendfunds',
+//       views: {
+//         'menuContent': {
+//           templateUrl: 'views/sendfunds.html',
+//           controller: 'SendfundsController'
+//         }
+//       }
+//     })
+//  .state('app.permissions', {
+//       url: '/permissions',
+//       views: {
+//         'menuContent': {
+//           templateUrl: 'views/permissions.html',
+//           controller: 'PermissionsController'
+//         }
+//       }
+//     })
   .state('app.transit', {
       url: '/transit',
       views: {

@@ -17,25 +17,7 @@ app.factory('DappService', function(){
     { id: 11, sender: 'Julie', senderAddr:'123 Pine St. St. Louis MO 63101',senderPhone: '555-8765',senderEmail: 'faeez.shaikh@gmail.com',receiverAddr: '9445 Potter Rd. Chicago IL 94423',recieverPhone: '205-345-9545',recieverEmail: 'john@gmail.com' ,gems: 600, miles: 5.8, img: 'https://www.directcouriersolutions.com/wp-content/uploads/2015/02/parcel-500-660-500x600.jpg',fragile:false,confirm:false,instructions:'Please drop the package at the doorstep. Do not ring doorbell. Thanks!', status:'ready' },
     { id: 12, sender: 'Juliette',senderAddr:'123 Pine St. St. Louis MO 63101', senderPhone: '555-5678', senderEmail: 'faeez.shaikh@gmail.com',receiverAddr: '9445 Potter Rd. Chicago IL 94423',recieverPhone: '205-345-9545',recieverEmail: 'john@gmail.com',gems: 800, miles: 6.0, img: 'http://www.book-cycle.org/wp-content/uploads/2015/08/parcel.png',fragile:false,confirm:false,instructions:'Please drop the package at the doorstep. Do not ring doorbell. Thanks!', status:'ready' }];
 
-    // var obj = {
-    //   id: -1,
-    //   title: '3 packed boxes',
-    //   sender: 'John McFarlen',
-    //   senderAddr: '123 Pine St. St. Louis MO 63101',
-    //   senderEmail: 'faeez.shaikh@gmail.com',
-    //   senderPhone: '314-982-3345',
-    //   receiver: 'Mary Olgo',
-    //   receiverAddr: '123 Olive St. Chicago IL 98773',
-    //   receiverEmail: 'mary.olgo@gmail.com',
-    //   receiverPhone: '204-982-3345',
-    //   gems: 50,
-    //   days: 5,
-    //   fragile: true,
-    //   confirm: true,
-    //   instructions: 'Drop the package at the door step. Do not ring bell.',
-    //   img: '',
-    //   miles: '5 miles aways'
-    // }
+  
 
   var balance;
   var smartContractBalance = 0;
@@ -65,7 +47,6 @@ app.factory('DappService', function(){
             return packages[i];
           }
         }
-        // return packages[id-1];
       },
       getBalance : function() {
         return balance;
