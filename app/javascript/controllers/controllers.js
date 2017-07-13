@@ -46,10 +46,6 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
 
 
 
-            // var val4 = web3.eth.getBalance(web3.eth.accounts[4]);
-            // var balance4 = web3.fromWei(val4,'ether').toNumber()
-            // console.log('Retrieved Balance from BlockChain for Person 4 :', balance4 );
-
             // DappService.setBalance(balance);
 
             //    contract.queryBalance.call(web3.eth.accounts[1]).then(function(result) {
@@ -63,10 +59,6 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
     });
 
    
-
-
-
-
     $scope.getBalance = function() {
         return DappService.getBalance();
     }
