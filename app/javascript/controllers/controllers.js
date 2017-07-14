@@ -9,10 +9,19 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
     BlockexGem.deployed().then(function(contract) {
         $scope.contractBalanceInEther = web3.fromWei(web3.eth.getBalance(contract.address).toNumber(), "ether");
         $scope.contract_address = contract.address;
-
+        console.log('Contract Address: ', contract.address);
+        console.log('Raw Contract Balance: ', $scope.contractBalanceInEther);
         $scope.person1Addr = web3.eth.accounts[0];
         $scope.person2Addr = web3.eth.accounts[1];
 
+        contract.queryBalance.call(contract.address, {from: contract.address}).then(function(balance) {
+            console.log('Contract Balance: ', balance.toNumber());
+        }).catch(function(e) {
+            console.log('Error getting contract Balance: ');
+        })
+
+
+         getAccountBalances();
 
             // contract.setBalance(web3.toWei(100000, "ether"), web3.eth.accounts[1], { from: web3.eth.accounts[0], gas: 200000 }).then(function () {
             //     console.log('Balance of 1st Person set to 10,000');
@@ -45,30 +54,37 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
     }
 
     function getAccountBalances() {
+
+
+             var val = web3.eth.getBalance($scope.contract_address);
+            var contract_balance = web3.fromWei(val,'ether').toNumber()
+            console.log('Account :' + $scope.contract_address + ' balance: ', contract_balance );
+
+
              var val = web3.eth.getBalance(web3.eth.accounts[0]);
             var balance = web3.fromWei(val,'ether').toNumber()
-            console.log('Retrieved Balance from BlockChain for Person 0 :', balance );
+            console.log('Account :' + web3.eth.accounts[0] + ' balance: ', balance );
 
 
             var val1 = web3.eth.getBalance(web3.eth.accounts[1]);
             var balance1 = web3.fromWei(val1,'ether').toNumber()
-            console.log('Retrieved Balance from BlockChain for Person 1 :', balance1 );
+            console.log('Account :' + web3.eth.accounts[1] + ' balance: ', balance1 );
 
 
             var val2 = web3.eth.getBalance(web3.eth.accounts[2]);
             var balance2 = web3.fromWei(val2,'ether').toNumber()
-            console.log('Retrieved Balance from BlockChain for Person 2 :', balance2 );
+            console.log('Account :' + web3.eth.accounts[2] + ' balance: ', balance2 );
 
 
 
             var val3 = web3.eth.getBalance(web3.eth.accounts[3]);
             var balance3 = web3.fromWei(val3,'ether').toNumber()
-            console.log('Retrieved Balance from BlockChain for Person 3 :', balance3 );
+            console.log('Account :' + web3.eth.accounts[3] + ' balance: ', balance3 );
 
     }
    
     $scope.getBalance = function() {
-        getAccountBalances();
+       
         return DappService.getBalance();
     }
 

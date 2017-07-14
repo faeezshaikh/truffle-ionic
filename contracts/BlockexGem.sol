@@ -9,7 +9,8 @@ contract BlockexGem {
 
     function BlockexGem() {
         contract_addr = msg.sender;
-        balances[contract_addr] = 0;
+        // balances[contract_addr] = 10000;
+        balances[tx.origin] = 10000;
     }
 
     // function mint(address owner, uint amount) {
