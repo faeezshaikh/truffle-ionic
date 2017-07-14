@@ -11,8 +11,23 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         $scope.contract_address = contract.address;
         console.log('Contract Address: ', contract.address);
         console.log('Raw Contract Balance: ', $scope.contractBalanceInEther);
-        $scope.person1Addr = web3.eth.accounts[0];
-        $scope.person2Addr = web3.eth.accounts[1];
+
+        // $scope.blockexContract = web3.eth.accounts[3];
+        $scope.person1Addr = web3.eth.accounts[1];
+        $scope.person2Addr = web3.eth.accounts[2];
+
+
+        // Set Balance for Smart Contract
+        var val = web3.eth.getBalance($scope.contract_address);
+        var contract_balance = web3.fromWei(val,'ether').toNumber()
+        console.log('Account :' + $scope.contract_address + ' balance: ', contract_balance );
+        DappService.setSmartContractBalance(contract_balance);
+
+        // Set Balance for Person1
+        var val1 = web3.eth.getBalance(web3.eth.accounts[1]);
+        var balance1 = web3.fromWei(val1,'ether').toNumber()
+        console.log('Account :' + web3.eth.accounts[1] + ' balance: ', balance1 );
+        DappService.setBalance(balance1);
 
         contract.queryBalance.call(contract.address, {from: contract.address}).then(function(balance) {
             console.log('Contract Balance: ', balance.toNumber());
@@ -21,7 +36,7 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         })
 
 
-         getAccountBalances();
+        getAccountBalances();
 
             // contract.setBalance(web3.toWei(100000, "ether"), web3.eth.accounts[1], { from: web3.eth.accounts[0], gas: 200000 }).then(function () {
             //     console.log('Balance of 1st Person set to 10,000');
@@ -50,7 +65,7 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
 
     $scope.doSomething = function() {
         console.log('Sending Txn on Blockchain')
-         web3.eth.sendTransaction({from: web3.eth.accounts[2], to: web3.eth.accounts[3], value: web3.toWei(1, "ether")});
+         web3.eth.sendTransaction({from: web3.eth.accounts[3], to: web3.eth.accounts[2], value: web3.toWei(9, "ether")});
     }
 
     function getAccountBalances() {
