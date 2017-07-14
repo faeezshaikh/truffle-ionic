@@ -143,7 +143,7 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         'receiverAddr':'',
         'recieverPhone': '',
         'recieverEmail': '',
-        'gems':50,
+        'gems':1,
         'days':20,
         'fragile':false,
         'confirm':false,
@@ -159,20 +159,20 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
     $scope.onRangeChange = function () {
         // console.log('Changed:',$scope.form.gems);
 
-        if ($scope.form.gems > 800 && $scope.form.gems < 900)
+        // if ($scope.form.gems >= 20)
+        //     $scope.form.days = 1;
+        if ($scope.form.gems > 18 && $scope.form.gems < 20)
             $scope.form.days = 1;
-        if ($scope.form.gems > 600 && $scope.form.gems < 800)
-            $scope.form.days = 3;
 
-        if ($scope.form.gems > 400 && $scope.form.gems < 600)
+        if ($scope.form.gems > 15 && $scope.form.gems < 18)
             $scope.form.days = 6;
-        if ($scope.form.gems > 300 && $scope.form.gems < 400)
+        if ($scope.form.gems > 12 && $scope.form.gems < 15)
             $scope.form.days = 7;
-        if ($scope.form.gems > 200 && $scope.form.gems < 300)
+        if ($scope.form.gems > 8 && $scope.form.gems < 12)
             $scope.form.days = 10;
-        if ($scope.form.gems > 100 && $scope.form.gems < 200)
+        if ($scope.form.gems > 5 && $scope.form.gems < 8)
             $scope.form.days = 15;
-        if ($scope.form.gems > 0 && $scope.form.gems < 100)
+        if ($scope.form.gems > 0 && $scope.form.gems < 5)
             $scope.form.days = 20;
 
 
@@ -237,7 +237,7 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         'receiverAddr': '9445 Potter Rd. Chicago IL 94423',
         'recieverPhone': '205-345-9545',
         'recieverEmail': 'john@gmail.com',
-        'gems':50,
+        'gems':1,
         'days':20,
         'fragile':false,
         'confirm':false,
