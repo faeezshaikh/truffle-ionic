@@ -14,6 +14,7 @@ module.exports = {
       // "javascript/controllers/showevents.js",
       // "javascript/controllers/permissions.js",
       "javascript/controllers/packagesController.js",
+      "javascript/controllers/menuController.js",
       "javascript/controllers/controllers.js",
       "javascript/services/dappservice.js"
     ],
