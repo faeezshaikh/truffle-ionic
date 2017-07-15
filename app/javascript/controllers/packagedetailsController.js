@@ -70,7 +70,10 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
         transferFundsOnBlockchain(web3.eth.accounts[1],DappService.getSmartContractAddress(),escrow);
     }
 
-    function updateBalanceOnDelivery(amt) {
+    function updateBalanceOnDelivery(amt1) {
+
+        var amt = amt1*2;
+
         var newBalance = DappService.getBalance() + parseInt(amt);
         DappService.setBalance(newBalance);
         console.log('Balance set to: ', newBalance);
