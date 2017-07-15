@@ -4,84 +4,11 @@ var app = angular.module("blockchainExpressDapp");
 
 app.controller('PackagesController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService,$ionicPopup,$timeout) {
 
-
-
-    BlockexGem.deployed().then(function(contract) {
-        // $scope.contractBalanceInEther = web3.fromWei(web3.eth.getBalance(contract.address).toNumber(), "ether");
-        // console.log('Raw Contract Balance: ', $scope.contractBalanceInEther);
-        $scope.contract_address = contract.address;
-        console.log('Contract Address: ', contract.address);
-
-        $scope.person1Addr = web3.eth.accounts[1];
-        $scope.person2Addr = web3.eth.accounts[2];
-
-
-        // Set Balance for Smart Contract (0 Eth)
-        var val = web3.eth.getBalance($scope.contract_address);
-        var contract_balance = web3.fromWei(val,'ether').toNumber()
-        console.log('Smart Contract Account :' + $scope.contract_address + ' balance: ', contract_balance );
-      //  DappService.setSmartContractBalance(contract_balance);
-
-        // Set Balance for Person1  (100 Eth)
-        var val1 = web3.eth.getBalance(web3.eth.accounts[1]);
-        var balance1 = web3.fromWei(val1,'ether').toNumber()
-        console.log('Person 1 Account :' + web3.eth.accounts[1] + ' balance: ', balance1 );
-        DappService.setBalance(balance1);
-
-
-        // Set Balance for Person2 (100 Eth)
-        var val2 = web3.eth.getBalance(web3.eth.accounts[2]);
-        var balance2 = web3.fromWei(val2,'ether').toNumber()
-        console.log('Person 2 Account :' + web3.eth.accounts[2] + ' balance: ', balance2 );
-
-       // getAccountBalances();
-
-            // contract.setBalance(web3.toWei(100000, "ether"), web3.eth.accounts[1], { from: web3.eth.accounts[0], gas: 200000 }).then(function () {
-            //     console.log('Balance of 1st Person set to 10,000');
-            //     $scope.transfer_success = true;
-            //     $scope.$apply();
-            // }).catch(function (error) {
-            //     console.error(error);
-            //     $scope.has_errors = error;
-            //     $scope.$apply();
-            // });
-           
-    });
-
     $scope.balanceClicked = function() {
         console.log('Sending Txn on Blockchain')
          web3.eth.sendTransaction({from: web3.eth.accounts[3], to: web3.eth.accounts[2], value: web3.toWei(9, "ether")});
     }
 
-    function getAccountBalances() {
-
-
-             var val = web3.eth.getBalance($scope.contract_address);
-            var contract_balance = web3.fromWei(val,'ether').toNumber()
-            console.log('Account :' + $scope.contract_address + ' balance: ', contract_balance );
-
-
-             var val = web3.eth.getBalance(web3.eth.accounts[0]);
-            var balance = web3.fromWei(val,'ether').toNumber()
-            console.log('Account :' + web3.eth.accounts[0] + ' balance: ', balance );
-
-
-            var val1 = web3.eth.getBalance(web3.eth.accounts[1]);
-            var balance1 = web3.fromWei(val1,'ether').toNumber()
-            console.log('Account :' + web3.eth.accounts[1] + ' balance: ', balance1 );
-
-
-            var val2 = web3.eth.getBalance(web3.eth.accounts[2]);
-            var balance2 = web3.fromWei(val2,'ether').toNumber()
-            console.log('Account :' + web3.eth.accounts[2] + ' balance: ', balance2 );
-
-
-
-            var val3 = web3.eth.getBalance(web3.eth.accounts[3]);
-            var balance3 = web3.fromWei(val3,'ether').toNumber()
-            console.log('Account :' + web3.eth.accounts[3] + ' balance: ', balance3 );
-
-    }
    
     $scope.getBalance = function() {
         return DappService.getBalance();
@@ -173,7 +100,7 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
     function transferFundsOnBlockchain(amt) {
 
         // From account to Smart contract
-         web3.eth.sendTransaction({from: web3.eth.accounts[1], to: web3.eth.accounts[3], value: web3.toWei(amt, "ether")});
+        web3.eth.sendTransaction({from: web3.eth.accounts[1], to: $scope.contract_address, value: web3.toWei(amt, "ether")});
     }
 
     function showPopup() {
@@ -216,32 +143,75 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
     }
 
     function populateForm() {
-
-
-    $scope.form = { 
-        'senderAddr':'123 Pine St. St. Louis MO 63101',
-        'senderPhone': '314-984-9845',
-        'senderEmail': 'faeez.shaikh@gmail.com',
-        'receiverAddr': '9445 Potter Rd. Chicago IL 94423',
-        'recieverPhone': '205-345-9545',
-        'recieverEmail': 'john@gmail.com',
-        'gems':1,
-        'days':20,
-        'fragile':false,
-        'confirm':false,
-        'instructions':'Please drop the package at the doorstep. Do not ring doorbell. Thanks!',
-        'img': 'http://www.elllo.org/Assets/images/P0351/374-Marion-Package.jpg',
-        'id': 0,
-        'miles': 300,
-        'status':'ready'
-        // 'cost': 0 
-    };
-
-    
-
+        $scope.form = { 
+            'senderAddr':'123 Pine St. St. Louis MO 63101',
+            'senderPhone': '314-984-9845',
+            'senderEmail': 'faeez.shaikh@gmail.com',
+            'receiverAddr': '9445 Potter Rd. Chicago IL 94423',
+            'recieverPhone': '205-345-9545',
+            'recieverEmail': 'john@gmail.com',
+            'gems':1,
+            'days':20,
+            'fragile':false,
+            'confirm':false,
+            'instructions':'Please drop the package at the doorstep. Do not ring doorbell. Thanks!',
+            'img': 'http://www.elllo.org/Assets/images/P0351/374-Marion-Package.jpg',
+            'id': 0,
+            'miles': 300,
+            'status':'ready'
+            // 'cost': 0 
+        };
     }
 });
 
+
+/// TODO: Externalize file
+
+app.controller('MenuController', function ($scope, $ionicModal, $ionicScrollDelegate,DappService) {
+     BlockexGem.deployed().then(function(contract) {
+
+        // For some reason contract.address for smart contract address is giving issues. Hence designating account 3 as escrow (smart contract) address
+        // $scope.contract_address = contract.address;
+        $scope.contract_address = web3.eth.accounts[3];
+        console.log('Contract Address: ',  $scope.contract_address);
+        $scope.person1Addr = web3.eth.accounts[1];
+
+
+
+        getBlockchainAddressBalance($scope.contract_address,'Smart Contract');
+        // contract.setBalance($scope.contract_address,0);
+        getBlockchainAddressBalance($scope.contract_address,'Smart Contract');
+
+
+        // Set Balance for Person1  (100 Eth)
+        var thisAccountBalance = getBlockchainAddressBalance(web3.eth.accounts[1],'Person 1');
+        DappService.setBalance(thisAccountBalance);
+
+
+        // Printing Balance for Person2 (100 Eth)
+        getBlockchainAddressBalance(web3.eth.accounts[2],'Person 2');
+
+
+            // contract.setBalance(web3.toWei(100000, "ether"), web3.eth.accounts[1], { from: web3.eth.accounts[0], gas: 200000 }).then(function () {
+            //     console.log('Balance of 1st Person set to 10,000');
+            //     $scope.transfer_success = true;
+            //     $scope.$apply();
+            // }).catch(function (error) {
+            //     console.error(error);
+            //     $scope.has_errors = error;
+            //     $scope.$apply();
+            // });
+           
+    });
+
+     function getBlockchainAddressBalance(address,nickname){
+         var val = web3.eth.getBalance(address);
+         var balance = web3.fromWei(val,'ether').toNumber()
+         console.log('Blockchain Address :' + address + ' Nickname: ' + nickname +  ' ==>  Balance: ', balance );
+         return balance;
+    }
+
+});
 
 /// TODO: Externalize file
 
@@ -261,9 +231,11 @@ app.controller('SmartContractController', function ($scope, $ionicModal, $ionicS
     }
 
     function getSmartContractBalance() {
-        var val = web3.eth.getBalance(web3.eth.accounts[3]);
+        //var smartContractAddress = $scope.contract_address;
+         var smartContractAddress = web3.eth.accounts[3];
+        var val = web3.eth.getBalance(smartContractAddress);
         var contract_balance = web3.fromWei(val,'ether').toNumber();
-        console.log('Smart Contract Account :' + $scope.contract_address + ' balance: ', contract_balance );
+        console.log('Smart Contract Account :' + smartContractAddress + ' balance: ', contract_balance );
         return contract_balance;
     }
 

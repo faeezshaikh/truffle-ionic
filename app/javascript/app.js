@@ -16,7 +16,7 @@ app.config(function($stateProvider, $urlRouterProvider,toastrConfig) {
     url: '/app',
     abstract: true,
     templateUrl: 'views/menu.html',
-    controller: 'PackagesController'
+    controller: 'MenuController'
   })
 
 //     .state('app.main', {
