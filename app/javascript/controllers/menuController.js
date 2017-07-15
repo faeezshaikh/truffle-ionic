@@ -7,16 +7,18 @@ app.controller('MenuController', function ($scope, $ionicModal, $ionicScrollDele
      BlockexGem.deployed().then(function(contract) {
 
         // For some reason contract.address for smart contract address is giving issues. Hence designating account 3 as escrow (smart contract) address
-        // $scope.contract_address = contract.address;
-        $scope.contract_address = web3.eth.accounts[3];
-        console.log('Contract Address: ',  $scope.contract_address);
+        // var contract_address = contract.address;
+        var contract_address = web3.eth.accounts[3];
+        console.log('Contract Address: ',  contract_address);
+
+        DappService.setSmartContractAddress(contract_address);
         $scope.person1Addr = web3.eth.accounts[1];
 
 
 
-        getBlockchainAddressBalance($scope.contract_address,'Smart Contract');
-        // contract.setBalance($scope.contract_address,0);
-        getBlockchainAddressBalance($scope.contract_address,'Smart Contract');
+        getBlockchainAddressBalance(contract_address,'Smart Contract');
+        // contract.setBalance(contract_address,0);
+        getBlockchainAddressBalance(contract_address,'Smart Contract');
 
 
         // Set Balance for Person1  (100 Eth)

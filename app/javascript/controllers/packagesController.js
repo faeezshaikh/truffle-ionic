@@ -94,13 +94,12 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         DappService.setSmartContractBalance(newSmartContractBalance);
         console.log('Smart Contract Balance set to: ', newSmartContractBalance);
 
-        transferFundsOnBlockchain($scope.form.gems);
+        transferFundsOnBlockchain(web3.eth.accounts[1],DappService.getSmartContractAddress(),$scope.form.gems);
     }
 
-    function transferFundsOnBlockchain(amt) {
-
+    function transferFundsOnBlockchain(fromAddr, toAddr , amt) {
         // From account to Smart contract
-        web3.eth.sendTransaction({from: web3.eth.accounts[1], to: $scope.contract_address, value: web3.toWei(amt, "ether")});
+        web3.eth.sendTransaction({from: fromAddr, to: toAddr , value: web3.toWei(amt, "ether")});
     }
 
     function showPopup() {
