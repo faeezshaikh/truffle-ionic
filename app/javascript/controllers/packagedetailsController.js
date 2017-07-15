@@ -9,7 +9,7 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
       $scope.packageId = $stateParams.id;
       $scope.package = DappService.getPackage($scope.packageId);
       console.log('Package..=>', $scope.package);
-      var escrow = $scope.package.gems * 2;
+      var escrow = $scope.package.gems;
       var pkg = $scope.package;
 
       $scope.getBalance = function() {
@@ -25,7 +25,7 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
         });
         confirmPopup.then(function (res) {
              if(res) {
-                updateBalance(escrow);
+                updateBalanceForPickup(escrow);
                 pkg.status = 'InTransit';
                 DappService.updatePackage(pkg);
                 $ionicScrollDelegate.$getByHandle('pkgDetailspage').scrollTop(true);
@@ -57,7 +57,7 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
       }
 
 
-    function updateBalance(escrow) {
+    function updateBalanceForPickup(escrow) {
         var newBalance = DappService.getBalance() - parseInt(escrow);
         DappService.setBalance(newBalance);
         console.log('Balance set to: ', newBalance);
@@ -65,6 +65,9 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
         var newSmartContractBalance = DappService.getSmartContractBalance() + parseInt(escrow);
         DappService.setSmartContractBalance(newSmartContractBalance);
         console.log('Smart Contract Balance set to: ', newSmartContractBalance);
+
+
+        transferFundsOnBlockchain(web3.eth.accounts[1],DappService.getSmartContractAddress(),escrow);
     }
 
     function updateBalanceOnDelivery(amt) {
@@ -75,5 +78,11 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
         var newSmartContractBalance = DappService.getSmartContractBalance() - parseInt(amt);
         DappService.setSmartContractBalance(newSmartContractBalance);
         console.log('Smart Contract Balance set to: ', newSmartContractBalance);
+
+        transferFundsOnBlockchain(DappService.getSmartContractAddress(),web3.eth.accounts[1],amt);
+    }
+
+      function transferFundsOnBlockchain(fromAddr, toAddr , amt) {
+          web3.eth.sendTransaction({from: fromAddr, to: toAddr , value: web3.toWei(amt, "ether")});
     }
 });
