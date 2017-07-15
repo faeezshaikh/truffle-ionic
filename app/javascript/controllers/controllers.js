@@ -199,7 +199,8 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         if(bool) {
             console.log('Addng pic');
             // $scope.showSpinner = true;
-            $scope.imgUrl ="http://animadomus.com/integration/img/gform-spinner.gif" ;
+            // $scope.imgUrl ="http://animadomus.com/integration/img/gform-spinner.gif" ;
+            $scope.imgUrl ="http://animadomus.com/integration/img/gform-spinner.gif";
 
         $timeout( function(){
                 // $scope.showSpinner = false;
