@@ -84,7 +84,6 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
     }
    
     $scope.getBalance = function() {
-       
         return DappService.getBalance();
     }
 
@@ -105,9 +104,7 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         $ionicScrollDelegate.$getByHandle('show-page').scrollTop(true);
     };
     $scope.closeModal = function () {
-        
-
-        $scope.showPopup(50);
+            showPopup();
         //  $scope.modal.remove();
 
     };
@@ -159,9 +156,6 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
             $scope.form.days = 15;
         if ($scope.form.gems > 0 && $scope.form.gems < 5)
             $scope.form.days = 20;
-
-
-
     }
 
     function updateBalance() {
@@ -174,22 +168,22 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         console.log('Smart Contract Balance set to: ', newSmartContractBalance);
     }
 
-    $scope.showPopup = function (cost) {
+    function showPopup() {
         var confirmPopup = $ionicPopup.confirm({
             title: 'Confirm Purchase',
             template: 'This will debit ' + $scope.form.gems + ' BlockEx gems from your account.'
         });
         confirmPopup.then(function (res) {
              if(res) {
-                $scope.modal.hide();
-                updateBalance();
-                DappService.addPackage($scope.form);
-                $ionicScrollDelegate.$getByHandle('packagesPage').scrollTop(true);
-                toastr.success('Request added to Blockchain!','Transation successfully mined.');
-                // $scope.apply(); // Bug --> Button not updating after Pick up.
-                console.log('You are sure');
+                    $scope.modal.hide();
+                    updateBalance();
+                    DappService.addPackage($scope.form);
+                    $ionicScrollDelegate.$getByHandle('packagesPage').scrollTop(true);
+                    toastr.success('Request added to Blockchain!','Transation successfully mined.');
+                    // $scope.apply(); // Bug --> Button not updating after Pick up.
+                    console.log('Package successfully added for pickup');
                 } else {
-                console.log('You are not sure');
+                 console.log('Package failed to be added for pickup');
                 }
         });
     };
