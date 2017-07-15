@@ -20,7 +20,7 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         var val = web3.eth.getBalance($scope.contract_address);
         var contract_balance = web3.fromWei(val,'ether').toNumber()
         console.log('Smart Contract Account :' + $scope.contract_address + ' balance: ', contract_balance );
-        DappService.setSmartContractBalance(contract_balance);
+      //  DappService.setSmartContractBalance(contract_balance);
 
         // Set Balance for Person1  (100 Eth)
         var val1 = web3.eth.getBalance(web3.eth.accounts[1]);
@@ -166,6 +166,14 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         var newSmartContractBalance = DappService.getSmartContractBalance() + parseInt($scope.form.gems);
         DappService.setSmartContractBalance(newSmartContractBalance);
         console.log('Smart Contract Balance set to: ', newSmartContractBalance);
+
+        transferFundsOnBlockchain($scope.form.gems);
+    }
+
+    function transferFundsOnBlockchain(amt) {
+
+        // From account to Smart contract
+         web3.eth.sendTransaction({from: web3.eth.accounts[1], to: web3.eth.accounts[3], value: web3.toWei(amt, "ether")});
     }
 
     function showPopup() {
@@ -239,13 +247,24 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
 
 app.controller('SmartContractController', function ($scope, $ionicModal, $ionicScrollDelegate,DappService) {
 
-    $scope.contractBalance = DappService.getSmartContractBalance();
+
+    
+    //  $scope.contractBalance = DappService.getSmartContractBalance();
+    $scope.contractBalance = getSmartContractBalance();
     $scope.date = new Date();
 
 
     $scope.refreshContractBalance = function() {
-        $scope.contractBalance = DappService.getSmartContractBalance();
+        // $scope.contractBalance = DappService.getSmartContractBalance();
+        $scope.contractBalance = getSmartContractBalance();
         console.log('Refreshing Smart Contract Balance',$scope.contractBalance);
+    }
+
+    function getSmartContractBalance() {
+        var val = web3.eth.getBalance(web3.eth.accounts[3]);
+        var contract_balance = web3.fromWei(val,'ether').toNumber();
+        console.log('Smart Contract Account :' + $scope.contract_address + ' balance: ', contract_balance );
+        return contract_balance;
     }
 
 });
