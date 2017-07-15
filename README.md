@@ -104,3 +104,18 @@ Angular 1 / Ionic 1 Toast Msgs: https://github.com/Foxandxss/angular-toastr
    
 
    bower install angular-toastr
+
+
+
+1. Alice adds New Pkg for Pickup
+    $20 get deposited in the smart conract
+    
+    
+
+2. Bob picksup a package for delivery
+    $20 get deposited in the smart contract
+
+
+3. Bob delivers the Package
+    Bob gets back $40 from the smart contract
+
