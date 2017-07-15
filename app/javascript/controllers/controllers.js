@@ -48,7 +48,7 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
            
     });
 
-    $scope.doSomething = function() {
+    $scope.balanceClicked = function() {
         console.log('Sending Txn on Blockchain')
          web3.eth.sendTransaction({from: web3.eth.accounts[3], to: web3.eth.accounts[2], value: web3.toWei(9, "ether")});
     }
