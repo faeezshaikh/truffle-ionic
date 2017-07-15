@@ -1,4 +1,3 @@
-
 "use strict";
 var app = angular.module("blockchainExpressDapp");
 
@@ -78,19 +77,3 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
         console.log('Smart Contract Balance set to: ', newSmartContractBalance);
     }
 });
-
-
-app.controller('TransitController', function ($scope, $ionicModal, $ionicScrollDelegate,DappService) {
-
-    $scope.transitPackages = [];
-    var allPackages = DappService.getPackages();
-    for(i=0;i<allPackages.length;i++) {
-        if(allPackages[i].status == 'InTransit') {
-            $scope.transitPackages.push(allPackages[i]);
-        }
-    }
-    console.log('Packages in Transit:', $scope.transitPackages);
- 
-
-});
-

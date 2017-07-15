@@ -16,7 +16,7 @@ module.exports = {
       "javascript/controllers/packagesController.js",
       "javascript/controllers/menuController.js",
       "javascript/controllers/smartcontractController.js",
-      "javascript/controllers/controllers.js",
+      "javascript/controllers/packagedetailsController.js",
       "javascript/services/dappservice.js"
     ],
     "app.css": [
