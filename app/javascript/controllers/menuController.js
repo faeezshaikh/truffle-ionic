@@ -12,9 +12,10 @@ app.controller('MenuController', function ($scope, $ionicModal, $ionicScrollDele
         console.log('Contract Address: ',  contract_address);
 
         DappService.setSmartContractAddress(contract_address);
+        //  web3.eth.sendTransaction({from: web3.eth.accounts[3], to: web3.eth.accounts[4] , value: web3.toWei(99, "ether")});
         $scope.person1Addr = web3.eth.accounts[1];
 
-
+        
 
         getBlockchainAddressBalance(contract_address,'Smart Contract');
         // contract.setBalance(contract_address,0);
