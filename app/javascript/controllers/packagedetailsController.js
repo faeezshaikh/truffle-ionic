@@ -26,7 +26,7 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
         confirmPopup.then(function (res) {
              if(res) {
                 updateBalanceForPickup(escrow);
-                pkg.status = 'InTransit';
+                pkg.status = 'In Transit';
                 DappService.updatePackage(pkg);
                 $ionicScrollDelegate.$getByHandle('pkgDetailspage').scrollTop(true);
                 toastr.success('Pickup added to Blockchain!','Transation successfully mined.');

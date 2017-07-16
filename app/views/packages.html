@@ -30,7 +30,7 @@
  
     <ion-item  class="item item-thumbnail-left item-icon-right " ng-hide="sender.hidden" ng-repeat="sender in filtered = (friends | filter:searchText | orderBy:'id')" href="#/app/packages/{{sender.id}}">
       <img src="{{sender.img}}">
-      <span class="badge badge-assertive" ng-show="sender.status == 'InTransit'">In Transit</span> 
+      <span class="badge badge-assertive" ng-show="sender.status == 'In Transit'">In Transit</span> 
       <span class="badge badge-balanced" ng-show="sender.status == 'Delivered'">Delivered</span> 
       <h2>Destination: {{sender.receiverAddr}}</h2>
       <p>Pickup: {{sender.senderAddr}}</p>

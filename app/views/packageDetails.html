@@ -123,10 +123,10 @@
     </div>
 
     <div class="center row">
-      <div ng-show="{{package.status == 'ready'}}" class="col">
+      <div ng-show="{{package.status == 'Ready'}}" class="col">
         <button class="button button-block button-positive" ng-click="showConfirm()">Pick Up</button>
       </div> 
-       <div ng-show="{{package.status == 'InTransit'}}" class="col">
+       <div ng-show="{{package.status == 'In Transit'}}" class="col">
         <button class="button button-block button-assertive" ng-click="confirmDelivery()">Confirm Delivery</button>
       </div> 
     </div>
