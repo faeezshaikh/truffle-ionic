@@ -105,7 +105,7 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
     function showPopup() {
         var confirmPopup = $ionicPopup.confirm({
             title: 'Confirm Purchase',
-            template: 'This will debit ' + $scope.form.gems + ' BlockEx gems from your account.'
+            template: 'This will debit <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;' + $scope.form.gems + ' BlockEx gems from your account.'
         });
         confirmPopup.then(function (res) {
              if(res) {
