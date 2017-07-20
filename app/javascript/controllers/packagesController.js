@@ -4,6 +4,9 @@ var app = angular.module("blockchainExpressDapp");
 
 app.controller('PackagesController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService,$ionicPopup,$timeout) {
 
+    $scope.events = [];
+    //  var contract = BlockexGem.deployed();
+    //  DappService.getBlockchainAddressBalance(contract.address,'Inside Pckgs Ctrl: Smart Contract');
     $scope.balanceClicked = function() {
         console.log('Sending Txn on Blockchain')
          web3.eth.sendTransaction({from: web3.eth.accounts[3], to: web3.eth.accounts[2], value: web3.toWei(9, "ether")});

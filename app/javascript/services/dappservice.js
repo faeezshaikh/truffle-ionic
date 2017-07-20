@@ -66,6 +66,12 @@ app.factory('DappService', function(){
       },
       getSmartContractAddress: function() {
         return smartContractAddress;
+      },
+      getBlockchainAddressBalance: function(address,nickname) {
+         var val = web3.eth.getBalance(address);
+         var balance = web3.fromWei(val,'ether').toNumber()
+         console.log('Blockchain Address :' + address + ' Nickname: ' + nickname +  ' ==>  Balance: ', balance );
+         return balance;
       }
     }
 
