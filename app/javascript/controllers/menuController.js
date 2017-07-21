@@ -9,6 +9,7 @@ app.controller('MenuController', function ($scope, $ionicModal, $ionicScrollDele
         web3.eth.defaultAccount = web3.eth.accounts[0];
 
         var contract = instance;
+        DappService.setSmartContractInstance(contract);
         // For some reason contract.address for smart contract address is giving issues. Hence designating account 3 as escrow (smart contract) address
         var contract_address = contract.address;
         // var contract_address = web3.eth.accounts[3];
@@ -30,19 +31,6 @@ app.controller('MenuController', function ($scope, $ionicModal, $ionicScrollDele
             console.log('Account Balance BEFORE Adding Package: ', res.c[0]);
             DappService.setBalance(res.c[0]);
         });
-
-        contract.addNewPackage(20).then(function(result) {
-              console.log('New package added to blockchain. Contract updated: ', result);
-              contract.queryBalance(contract.address).then(function(res){
-                    console.log('Contract Balance AFTER Adding Package: :', res.c[0]);
-                    DappService.setSmartContractBalance(res.c[0]);
-               });
-               contract.queryBalance(web3.eth.accounts[0]).then(function(res){
-                    console.log('Account Balance AFTER Adding Package: ', res.c[0]);
-                    DappService.setBalance(res.c[0]);
-                }); 
-        });
-
 
         var val = 20;
         // contract.pickupPackage(val,{from: web3.eth.accounts[0]}).then(function(result){

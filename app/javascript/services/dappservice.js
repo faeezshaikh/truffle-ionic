@@ -22,6 +22,7 @@ app.factory('DappService', function(){
   var balance;
   var smartContractBalance = 0;
   var smartContractAddress;
+  var smartContractInstance;
   
     return {
       addPackage : function(pkg) {
@@ -72,6 +73,23 @@ app.factory('DappService', function(){
          var balance = web3.fromWei(val,'ether').toNumber()
          console.log('Blockchain Address :' + address + ' Nickname: ' + nickname +  ' ==>  Balance: ', balance );
          return balance;
+      },
+      setSmartContractInstance: function(contract) {
+         smartContractInstance = contract;
+      },
+      addNewPackageOnBlockchain: function(value) {
+           var that = this;
+           smartContractInstance.addNewPackage(value).then(function(result) {
+              console.log('New package added to blockchain. Contract updated: ', result);
+              smartContractInstance.queryBalance(smartContractInstance.address).then(function(res){
+                    console.log('Contract Balance AFTER Adding Package: :', res.c[0]);
+                    that.setSmartContractBalance(res.c[0]);
+               });
+               smartContractInstance.queryBalance(web3.eth.accounts[0]).then(function(res){
+                    console.log('Account Balance AFTER Adding Package: ', res.c[0]);
+                    that.setBalance(res.c[0]);
+                }); 
+        });
       }
     }
 

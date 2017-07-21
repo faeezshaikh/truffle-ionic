@@ -90,15 +90,14 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
     }
 
     function updateBalance() {
-        var newBalance = DappService.getBalance() - parseInt($scope.form.gems);
-        DappService.setBalance(newBalance);
-        console.log('Balance set to: ', newBalance);
-
-        var newSmartContractBalance = DappService.getSmartContractBalance() + parseInt($scope.form.gems);
-        DappService.setSmartContractBalance(newSmartContractBalance);
-        console.log('Smart Contract Balance set to: ', newSmartContractBalance);
-
-        transferFundsOnBlockchain(web3.eth.accounts[1],DappService.getSmartContractAddress(),$scope.form.gems);
+        // var newBalance = DappService.getBalance() - parseInt($scope.form.gems);
+        // DappService.setBalance(newBalance);
+        // console.log('Balance set to: ', newBalance);
+        // var newSmartContractBalance = DappService.getSmartContractBalance() + parseInt($scope.form.gems);
+        // DappService.setSmartContractBalance(newSmartContractBalance);
+        // console.log('Smart Contract Balance set to: ', newSmartContractBalance);
+        // transferFundsOnBlockchain(web3.eth.accounts[1],DappService.getSmartContractAddress(),$scope.form.gems);
+        DappService.addNewPackageOnBlockchain($scope.form.gems);
     }
 
     function transferFundsOnBlockchain(fromAddr, toAddr , amt) {
