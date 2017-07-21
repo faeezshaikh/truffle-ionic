@@ -1,35 +1,64 @@
 pragma solidity ^0.4.0;
 contract BlockexGem {
 
-    address contract_addr;
-    mapping (address => uint) balances;
+    address public owner;
+    mapping (address => uint) public balances;
 
     event Deposit(address _sender, uint amount);
+    event NewPackageAdded(address _sender, uint amount);
+    event PackagePicked(address _sender, uint amount);
+    event PackageDelivered(address _sender, uint amount);
 
 
     function BlockexGem() {
-        contract_addr = msg.sender;
-        // balances[contract_addr] = 10000;
-        balances[tx.origin] = 10000;
+        owner = msg.sender;
+        balances[owner] = 10000;
+        // balances[tx.origin] = 10000;
     }
 
-    // function mint(address owner, uint amount) {
-    //     if (msg.sender != contract_addr) return;
-    //     balances[owner] += amount;
-    // }
+    function addNewPackage(uint amount)  public returns (bool success) {
+        if (balances[msg.sender] < amount) return;
+        balances[msg.sender] -= amount;
+        balances[this] += amount;
+        NewPackageAdded(msg.sender, amount);
+        return true;
+    }
 
-    function send(address receiver, uint amount) {
+    function pickupPackage(uint pkgAmt) public returns (bool success) {
+            if (balances[msg.sender] < pkgAmt) return;
+            balances[msg.sender] -= pkgAmt;
+            balances[this] += pkgAmt;
+            PackagePicked(msg.sender, pkgAmt);
+            return true;
+    }
+
+    function deliverPackage(uint pkgAmt) public returns (bool success){
+            uint payout = pkgAmt*2;
+            balances[this] -= payout;
+            balance[msg.sender] += payout;
+            PackageDelivered(msg.sender,payout);
+            return true;
+    }
+
+    function destroy() { // so funds not locked in contract forever
+        if (msg.sender == owner) {
+        suicide(owner); // send funds to owner
+        }
+    }
+
+    function send(address receiver, uint amount) public returns (bool success) {
         if (balances[msg.sender] < amount) return;
         balances[msg.sender] -= amount;
         balances[receiver] += amount;
         Deposit(receiver, amount);
+         return true;
     }
 
-    function setBalance(address receiver, uint amount) { 
+    function setBalance(address receiver, uint amount) public { 
         balances[receiver] = amount;
     }
     
-    function queryBalance(address addr) constant returns (uint balance) {
+    function queryBalance(address addr) public constant returns (uint balance) {
         return balances[addr];
     }
 }
