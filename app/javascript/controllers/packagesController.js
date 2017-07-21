@@ -87,11 +87,6 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
         DappService.addNewPackageOnBlockchain($scope.form.gems);
     }
 
-    function transferFundsOnBlockchain(fromAddr, toAddr , amt) {
-        // From account to Smart contract
-        web3.eth.sendTransaction({from: fromAddr, to: toAddr , value: web3.toWei(amt, "ether")});
-    }
-
     function showPopup() {
         var confirmPopup = $ionicPopup.confirm({
             title: 'Confirm Purchase',

@@ -10,17 +10,12 @@ app.controller('MenuController', function ($scope, $ionicModal, $ionicScrollDele
 
         var contract = instance;
         DappService.setSmartContractInstance(contract);
-        // For some reason contract.address for smart contract address is giving issues. Hence designating account 3 as escrow (smart contract) address
-        var contract_address = contract.address;
-        // var contract_address = web3.eth.accounts[3];
-        console.log('Contract Address: ',  contract_address);
-
+        console.log('Contract Address: ',  contract.address);
 
         // web3.eth.sendTransaction({from: web3.eth.accounts[4], to: web3.eth.accounts[3] , value: web3.toWei(99, "ether")});
+        DappService.setSmartContractAddress(contract.address);
 
-        DappService.setSmartContractAddress(contract_address);
-
-        $scope.person1Addr = web3.eth.accounts[1];
+        // $scope.person1Addr = web3.eth.accounts[1];
 
 
         contract.queryBalance(contract.address).then(function(res){
@@ -31,30 +26,6 @@ app.controller('MenuController', function ($scope, $ionicModal, $ionicScrollDele
             console.log('Account Balance BEFORE Adding Package: ', res.c[0]);
             DappService.setBalance(res.c[0]);
         });
-
-      
-
-
-      
-
-
-        // contract.send(contract_address,5000,{from:web3.eth.accounts[0]}).then(function(result) {
-        //     console.log('Returning after setting contract balance', result);
-        // });
-
-       
-
-
-
-
-        // Set Balance for Person1  (100 Eth)
-        var thisAccountBalance = DappService.getBlockchainAddressBalance(web3.eth.accounts[1],'Person 1');
-        DappService.setBalance(thisAccountBalance);
-
-
-        // Printing Balance for Person2 (100 Eth)
-        DappService.getBlockchainAddressBalance(web3.eth.accounts[2],'Person 2');
-
 
         $scope.appEvents = [];
         var events;
