@@ -29,7 +29,8 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
 
     /////// [ Get Balance ] ////////
     $scope.balanceClicked = function () {
-        $scope.getBalance();
+        // $scope.getBalance();
+        DappService.refreshBalanceFromBlockchain('account');
     }
 
     $scope.getBalance = function () {

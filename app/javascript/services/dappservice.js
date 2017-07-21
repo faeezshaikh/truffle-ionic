@@ -121,6 +121,18 @@ app.factory('DappService', function(){
                 }); 
 
         });
+      },
+      refreshBalanceFromBlockchain: function(addr) {
+        var that = this;
+        var address = (addr === 'smartContract') ? smartContractInstance.address : web3.eth.accounts[0];
+
+         smartContractInstance.queryBalance(address).then(function(res){
+                    console.log('Refreshing Balance from Blockchain', res.c[0]);
+                    if(addr === 'smartContract')
+                      that.setSmartContractBalance(res.c[0]);
+                    else
+                      that.setBalance(res.c[0]);
+          });
       }
     }
 
