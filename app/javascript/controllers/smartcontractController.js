@@ -20,11 +20,12 @@ app.controller('SmartContractController', function ($scope, $ionicModal, $ionicS
 
     function getSmartContractBalance() {
         //var smartContractAddress = $scope.contract_address;
-         var smartContractAddress = web3.eth.accounts[3];
-        var val = web3.eth.getBalance(smartContractAddress);
-        var contract_balance = web3.fromWei(val,'ether').toNumber();
-        console.log('Smart Contract Account :' + smartContractAddress + ' balance: ', contract_balance );
-        return contract_balance;
+        //  var smartContractAddress = web3.eth.accounts[3];
+        // var val = web3.eth.getBalance(smartContractAddress);
+        // var contract_balance = web3.fromWei(val,'ether').toNumber();
+        // console.log('Smart Contract Account :' + smartContractAddress + ' balance: ', contract_balance );
+        // return contract_balance;
+        return DappService.getSmartContractBalance();
     }
 
 });
