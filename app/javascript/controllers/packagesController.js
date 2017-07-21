@@ -5,7 +5,7 @@ var app = angular.module("blockchainExpressDapp");
 app.controller('PackagesController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService, $ionicPopup, $timeout) {
 
 
-    $scope.friends = DappService.getPackages();
+    $scope.packages = DappService.getPackages();
     $scope.imageData = false;
     $scope.form = {
         'senderAddr': '',

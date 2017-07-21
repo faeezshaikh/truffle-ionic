@@ -28,19 +28,19 @@
 
 <ion-list class="list" can-swipe="true">
  
-    <ion-item  class="item item-thumbnail-left item-icon-right " ng-hide="sender.hidden" ng-repeat="sender in filtered = (friends | filter:searchText | orderBy:'id')" href="#/app/packages/{{sender.id}}">
-      <img src="{{sender.img}}">
-      <span class="badge badge-assertive" ng-show="sender.status == 'In Transit'">In Transit</span> 
-      <span class="badge badge-balanced" ng-show="sender.status == 'Delivered'">Delivered</span> 
-      <h2>Destination: {{sender.receiverAddr}}</h2>
-      <p>Pickup: {{sender.senderAddr}}</p>
-      <p>Sender: {{sender.senderPhone}} <i class="ion-ios-telephone-outline" style="color:blueviolet;"></i></p>
-      <p>Reward: <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{sender.gems}} / <i class="ion-social-usd"></i>&nbsp;{{sender.gems/10 | number:2}} &nbsp;<i ng-show="{{sender.gems>50}}" class="ion-fireball" style="color:red;"></i></p>
-      <p>Distance: <i class="ion-ios-navigate-outline"></i>&nbsp;{{sender.miles}} miles away</p>
+    <ion-item  class="item item-thumbnail-left item-icon-right " ng-hide="package.hidden" ng-repeat="package in filtered = (packages | filter:searchText | orderBy:'id')" href="#/app/packages/{{package.id}}">
+      <img src="{{package.img}}">
+      <span class="badge badge-assertive" ng-show="package.status == 'In Transit'">In Transit</span> 
+      <span class="badge badge-balanced" ng-show="package.status == 'Delivered'">Delivered</span> 
+      <h2>Destination: {{package.receiverAddr}}</h2>
+      <p>Pickup: {{package.senderAddr}}</p>
+      <p>Sender: {{package.senderPhone}} <i class="ion-ios-telephone-outline" style="color:blueviolet;"></i></p>
+      <p>Reward: <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{package.gems}} / <i class="ion-social-usd"></i>&nbsp;{{package.gems/10 | number:2}} &nbsp;<i ng-show="{{package.gems>50}}" class="ion-fireball" style="color:red;"></i></p>
+      <p>Distance: <i class="ion-ios-navigate-outline"></i>&nbsp;{{package.miles}} miles away</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
         <ion-option-button class="button-balanced" ng-click="foo(district); clicked=!clicked;"><i ng-class="clicked ? 'icon ion-ios-heart-outline' : 'icon ion-heart'"></i></ion-option-button>
-         <ion-option-button class="button-assertive " ng-click="delete(sender)"><i class="icon ion-trash-a"></i></ion-option-button>
+         <ion-option-button class="button-assertive " ng-click="delete(package)"><i class="icon ion-trash-a"></i></ion-option-button>
     </ion-item >
 </ion-list>
   </ion-content>
@@ -50,38 +50,3 @@
 	  </button>
     </div>
 </ion-view>
-<!--
-
-<label>Search: <input ng-model="searchText"></label>
-<div class="list-group">
-  <a ng-repeat="friend in friends | filter:searchText" href="/#!/senders/{{friend.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{friend.name}}</h5>
-      <small>{{friend.phone}}</small>
-    </div>
-    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    <small>Donec id elit non mi porta.</small>
-
-  </a>
-
-</div>
-
-
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>-->
