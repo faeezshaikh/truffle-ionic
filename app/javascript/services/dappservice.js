@@ -106,6 +106,21 @@ app.factory('DappService', function(){
 
         });
 
+      },
+      deliverPackageOnBlockchain: function(value) {
+        var that = this;
+        smartContractInstance.deliverPackage(value,{from: web3.eth.accounts[0]}).then(function(result){
+              console.log('Package  with value' + value + ' delivered by: ' + web3.eth.accounts[0] );
+              smartContractInstance.queryBalance(smartContractInstance.address).then(function(res){
+                    console.log('Contract Balance AFTER  Package Delivery: :', res.c[0]);
+                    that.setSmartContractBalance(res.c[0]);
+               });
+               smartContractInstance.queryBalance(web3.eth.accounts[0]).then(function(res){
+                    console.log('Account Balance AFTER  Package Delivery: ', res.c[0]);
+                    that.setBalance(res.c[0]);
+                }); 
+
+        });
       }
     }
 

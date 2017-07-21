@@ -32,29 +32,10 @@ app.controller('MenuController', function ($scope, $ionicModal, $ionicScrollDele
             DappService.setBalance(res.c[0]);
         });
 
-        var val = 20;
-        // contract.pickupPackage(val,{from: web3.eth.accounts[0]}).then(function(result){
-        //       console.log('Package  with value' + val + ' picked up by: ' + web3.eth.accounts[0] );
-        //       contract.queryBalance(contract.address).then(function(res){
-        //             console.log('Contract Balance AFTER Picking up Package: :', res.c[0]);
-        //        });
-        //        contract.queryBalance(web3.eth.accounts[0]).then(function(res){
-        //             console.log('Account Balance AFTER Picking up Package: ', res.c[0]);
-        //         }); 
-
-        // });
+      
 
 
-        //  contract.deliverPackage(val,{from: web3.eth.accounts[0]}).then(function(result){
-        //       console.log('Package  with value' + val + ' delivered by: ' + web3.eth.accounts[0] );
-        //       contract.queryBalance(contract.address).then(function(res){
-        //             console.log('Contract Balance AFTER Picking up Package: :', res.c[0]);
-        //        });
-        //        contract.queryBalance(web3.eth.accounts[0]).then(function(res){
-        //             console.log('Account Balance AFTER Picking up Package: ', res.c[0]);
-        //         }); 
-
-        // });
+      
 
 
         // contract.send(contract_address,5000,{from:web3.eth.accounts[0]}).then(function(result) {

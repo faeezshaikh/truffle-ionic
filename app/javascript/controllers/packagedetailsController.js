@@ -2,9 +2,6 @@
 var app = angular.module("blockchainExpressDapp");
 
 app.controller("PackageDetailsController", function($scope,DappService,$stateParams,$ionicModal,$ionicPopup,$ionicScrollDelegate, toastr) {
-    //   var policySelected = {};
-    //   $scope.form = {'share' : 0};
-    //   $scope.myCoverage = $scope.premiumRecvd = 0;
 
       $scope.packageId = $stateParams.id;
       $scope.package = DappService.getPackage($scope.packageId);
@@ -58,32 +55,14 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
 
 
     function updateBalanceForPickup(escrow) {
-        // var newBalance = DappService.getBalance() - parseInt(escrow);
-        // DappService.setBalance(newBalance);
-        // console.log('Balance set to: ', newBalance);
-        // var newSmartContractBalance = DappService.getSmartContractBalance() + parseInt(escrow);
-        // DappService.setSmartContractBalance(newSmartContractBalance);
-        // console.log('Smart Contract Balance set to: ', newSmartContractBalance);
-        // transferFundsOnBlockchain(web3.eth.accounts[1],DappService.getSmartContractAddress(),escrow);
         DappService.pickupPackageOnBlockchain(escrow);
     }
 
-    function updateBalanceOnDelivery(amt1) {
-
-        var amt = amt1*2;
-
-        var newBalance = DappService.getBalance() + parseInt(amt);
-        DappService.setBalance(newBalance);
-        console.log('Balance set to: ', newBalance);
-
-        var newSmartContractBalance = DappService.getSmartContractBalance() - parseInt(amt);
-        DappService.setSmartContractBalance(newSmartContractBalance);
-        console.log('Smart Contract Balance set to: ', newSmartContractBalance);
-
-        transferFundsOnBlockchain(DappService.getSmartContractAddress(),web3.eth.accounts[1],amt);
+    function updateBalanceOnDelivery(amt) {
+        DappService.deliverPackageOnBlockchain(parseInt(amt));
     }
 
-      function transferFundsOnBlockchain(fromAddr, toAddr , amt) {
-          web3.eth.sendTransaction({from: fromAddr, to: toAddr , value: web3.toWei(amt, "ether")});
-    }
+    //   function transferFundsOnBlockchain(fromAddr, toAddr , amt) {
+    //       web3.eth.sendTransaction({from: fromAddr, to: toAddr , value: web3.toWei(amt, "ether")});
+    // }
 });
