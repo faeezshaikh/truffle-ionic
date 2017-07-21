@@ -5,19 +5,13 @@ var app = angular.module("blockchainExpressDapp");
 app.controller('PackagesController', function ($scope, $ionicModal, $ionicScrollDelegate, toastr, DappService,$ionicPopup,$timeout) {
 
     $scope.events = [];
-    //  var contract = BlockexGem.deployed();
-    //  DappService.getBlockchainAddressBalance(contract.address,'Inside Pckgs Ctrl: Smart Contract');
     $scope.balanceClicked = function() {
         $scope.getBalance();
-        //console.log('Sending Txn on Blockchain')
-         //web3.eth.sendTransaction({from: web3.eth.accounts[3], to: web3.eth.accounts[2], value: web3.toWei(9, "ether")});
     }
-
    
     $scope.getBalance = function() {
         return DappService.getBalance();
     }
-
 
     $scope.friends = DappService.getPackages();
 
@@ -90,13 +84,6 @@ app.controller('PackagesController', function ($scope, $ionicModal, $ionicScroll
     }
 
     function updateBalance() {
-        // var newBalance = DappService.getBalance() - parseInt($scope.form.gems);
-        // DappService.setBalance(newBalance);
-        // console.log('Balance set to: ', newBalance);
-        // var newSmartContractBalance = DappService.getSmartContractBalance() + parseInt($scope.form.gems);
-        // DappService.setSmartContractBalance(newSmartContractBalance);
-        // console.log('Smart Contract Balance set to: ', newSmartContractBalance);
-        // transferFundsOnBlockchain(web3.eth.accounts[1],DappService.getSmartContractAddress(),$scope.form.gems);
         DappService.addNewPackageOnBlockchain($scope.form.gems);
     }
 

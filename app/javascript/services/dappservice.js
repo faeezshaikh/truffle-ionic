@@ -90,6 +90,22 @@ app.factory('DappService', function(){
                     that.setBalance(res.c[0]);
                 }); 
         });
+      },
+      pickupPackageOnBlockchain: function(value) {
+        var that = this;
+        smartContractInstance.pickupPackage(value,{from: web3.eth.accounts[0]}).then(function(result){
+              console.log('Package  with value' + value + ' picked up by: ' + web3.eth.accounts[0] );
+              smartContractInstance.queryBalance(smartContractInstance.address).then(function(res){
+                    console.log('Contract Balance AFTER Picking up Package: :', res.c[0]);
+                    that.setSmartContractBalance(res.c[0]);
+               });
+               smartContractInstance.queryBalance(web3.eth.accounts[0]).then(function(res){
+                    console.log('Account Balance AFTER Picking up Package: ', res.c[0]);
+                    that.setBalance(res.c[0]);
+                }); 
+
+        });
+
       }
     }
 

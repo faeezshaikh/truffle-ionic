@@ -58,16 +58,14 @@ app.controller("PackageDetailsController", function($scope,DappService,$statePar
 
 
     function updateBalanceForPickup(escrow) {
-        var newBalance = DappService.getBalance() - parseInt(escrow);
-        DappService.setBalance(newBalance);
-        console.log('Balance set to: ', newBalance);
-
-        var newSmartContractBalance = DappService.getSmartContractBalance() + parseInt(escrow);
-        DappService.setSmartContractBalance(newSmartContractBalance);
-        console.log('Smart Contract Balance set to: ', newSmartContractBalance);
-
-
-        transferFundsOnBlockchain(web3.eth.accounts[1],DappService.getSmartContractAddress(),escrow);
+        // var newBalance = DappService.getBalance() - parseInt(escrow);
+        // DappService.setBalance(newBalance);
+        // console.log('Balance set to: ', newBalance);
+        // var newSmartContractBalance = DappService.getSmartContractBalance() + parseInt(escrow);
+        // DappService.setSmartContractBalance(newSmartContractBalance);
+        // console.log('Smart Contract Balance set to: ', newSmartContractBalance);
+        // transferFundsOnBlockchain(web3.eth.accounts[1],DappService.getSmartContractAddress(),escrow);
+        DappService.pickupPackageOnBlockchain(escrow);
     }
 
     function updateBalanceOnDelivery(amt1) {
