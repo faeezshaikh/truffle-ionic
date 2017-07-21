@@ -16,7 +16,7 @@ contract BlockexGem {
         // balances[tx.origin] = 10000;
     }
 
-    function addNewPackage(uint amount)  public returns (bool success) {
+    function addNewPackage(uint amount)  payable public returns (bool success) {
         if (balances[msg.sender] < amount) return;
         balances[msg.sender] -= amount;
         balances[this] += amount;
@@ -24,7 +24,7 @@ contract BlockexGem {
         return true;
     }
 
-    function pickupPackage(uint pkgAmt) public returns (bool success) {
+    function pickupPackage(uint pkgAmt) payable public returns (bool success) {
             if (balances[msg.sender] < pkgAmt) return;
             balances[msg.sender] -= pkgAmt;
             balances[this] += pkgAmt;
@@ -32,10 +32,10 @@ contract BlockexGem {
             return true;
     }
 
-    function deliverPackage(uint pkgAmt) public returns (bool success){
+    function deliverPackage(uint pkgAmt) payable public returns (bool success){
             uint payout = pkgAmt*2;
             balances[this] -= payout;
-            balance[msg.sender] += payout;
+            balances[msg.sender] += payout;
             PackageDelivered(msg.sender,payout);
             return true;
     }
@@ -61,4 +61,6 @@ contract BlockexGem {
     function queryBalance(address addr) public constant returns (uint balance) {
         return balances[addr];
     }
+
+    function() payable {}
 }
