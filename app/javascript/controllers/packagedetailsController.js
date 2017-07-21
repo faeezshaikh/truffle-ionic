@@ -47,7 +47,7 @@ app.controller("PackageDetailsController", function ($scope, DappService, $state
     $scope.confirmDelivery = function () {
         var confirmPopup = $ionicPopup.confirm({
             title: 'Confirm Delivery',
-            template: 'This will transfer <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;' + pkg.gems + ' BlockEx gems from the Smart Contract (Escrow) to the Carrier.'
+            template: 'This will transfer <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;' + pkg.gems + ' x 2 = ' + pkg.gems*2 + ' BlockEx gems from the Smart Contract (Escrow) to the Carrier.'
         });
         confirmPopup.then(function (res) {
             if (res) {
