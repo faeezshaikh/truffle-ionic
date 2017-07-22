@@ -12,7 +12,8 @@ contract BlockexGem {
 
     function BlockexGem() {
         owner = msg.sender;
-        balances[owner] = 1000;
+        balances[owner] = 100;
+        balances[this] = 500;
         // balances[tx.origin] = 10000;
     }
 
