@@ -119,3 +119,9 @@ Angular 1 / Ionic 1 Toast Msgs: https://github.com/Foxandxss/angular-toastr
 3. Bob delivers the Package
     Bob gets back $40 from the smart contract
 
+
+```
+npm config set prefix /usr/local
+npm install -g bower
+
+```
